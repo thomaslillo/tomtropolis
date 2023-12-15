@@ -28,11 +28,3 @@ h1 {
     font-weight: bold;
     font-size: x-large;
 }
-
-/* Center content in header and nav */
-header,
-nav {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}

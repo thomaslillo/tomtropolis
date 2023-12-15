@@ -17,21 +17,26 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo+Play">
 </head>
 <body class="bg-gradient-to-b from-purple-500 via-pink-500 to-red-500 text-white min-h-screen flex flex-col">
-    <header class="py-4 justify-center items-center">
-        <!-- Your header content goes here -->
-        <h1><i class="fa-solid fa-terminal"></i> Tomtropolis</i></h1> 
-    </header>
-    <nav class="py-2 justify-center items-center">
-        <!-- Your navigation menu goes here -->
-        <p> the nav BAR (get it) </p>
+    <nav class="flex justify-between content-center">
+        <div class="title p-8">
+            <h1><i class="fa-solid fa-terminal"></i> Tomtropolis</i></h1> 
+        </div>
+        <div class="links p-8">
+            <ul class="flex flex-wrap">
+                <li class="px-2"><a><h1> \about </h1></a></li>
+                <li class="px-2"><a><h1> \content </h1></a></li>
+            </ul>
+        </div>
     </nav>
     <main class="flex-1 flex items-center justify-center">
         <!-- Your main content goes here -->
-        <p>main body of the content</p>
+        <button class="bg-gray-200 hover:bg-blue-400 text-white font-bold py-2 px-4 rounded">
+            <p>welcome weary traveler</p>
+        </button>
     </main>
     <footer class="py-4 text-center">
         <!-- Your footer content goes here -->
-        <p>legal stuff in the footer and links</p>
+        <p>legal stuff and contact info | <i class="fa-regular fa-envelope"></i> </p>
     </footer>
 </body>
 </html>
