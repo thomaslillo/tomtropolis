@@ -1,3 +1,5 @@
-# WELCOME TO THE GREATEST SITE EVER MADE
+# Blazingly Fast Website
 
 This is my ongoing personal website, an eventual upgrade from the current version at thomaslillo.com
+
+I've used tailwindCSS and HTMX to create this. A fast and lightweight website!
