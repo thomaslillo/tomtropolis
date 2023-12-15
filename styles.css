@@ -1,0 +1,38 @@
+/* styles.css */
+/* Customize the background color */
+.bg-gradient-to-b {
+    background: linear-gradient(-45deg, #9ab3f5, #a0e5e4 ,#ffd166, #ff6b6b );
+    background-size: 400% 400%;
+    animation: gradient 20s ease infinite;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Customize text color and font */
+.text-white {
+    color: #00021a;
+    font-family: 'Cairo Play';
+}
+
+h1 {
+    font-weight: bold;
+    font-size: x-large;
+}
+
+/* Center content in header and nav */
+header,
+nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
