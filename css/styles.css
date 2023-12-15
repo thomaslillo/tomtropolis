@@ -19,7 +19,7 @@
 }
 
 /* Customize text color and font */
-.text-white {
+.text-universal {
     color: #00021a;
     font-family: 'Cairo Play';
 }
@@ -27,4 +27,8 @@
 h1 {
     font-weight: bold;
     font-size: x-large;
+}
+
+.body-links a {
+    color: #3f0abb;
 }
