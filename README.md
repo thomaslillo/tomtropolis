@@ -8,9 +8,10 @@ I've used tailwindCSS and HTMX to create this. A fast and lightweight website!
 
 https://5e-bits.github.io
 
-## How to Run FastAPI Server:
+## How to run the FastAPI server:
+
+Install the requirement with requirements.txt.
 
 ```
 uvicorn main:app --reload
 ```
-
