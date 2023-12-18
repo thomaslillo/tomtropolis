@@ -38,13 +38,18 @@
     <main class="flex-1 flex items-center justify-center">
         <!-- Your main content goes here -->
         <div id="main-screen-div">                
-            <h2>Welcome weary traveler</h2>
+            <h1>Welcome weary traveler</h1>
             <p>Use the tool below to find more information about the creatures you hunt.</p>
-            <div class="search-container flex">
-                <h1>Monster Search</h1>
-                <input type="text" id="monsterInput" placeholder="Enter a monster name" />
-                <button id="searchButton" class="bg-gray-200 hover:bg-blue-400 font-bold py-2 px-4 rounded">Search</button>
-                <div id="monsterResult" class="monster-result"></div>
+            <div class="search-container flex flex-col">
+                <h2 class="py-6">
+                    Monster Search
+                </h2>
+                <input type="text" id="monsterInput" class="py-2" placeholder="Enter a monster name" />
+                <button id="searchButton" class="bg-gray-200 hover:bg-blue-400 font-bold py-2 my-4 px-4 rounded">
+                    Search
+                </button>
+                <div id="monsterResult" class="monster-result py-2">
+                </div>
             </div>
         </div>
         <!-- End of main content -->

@@ -14,6 +14,7 @@ searchButton.addEventListener("click", () => {
 function searchMonster(monsterName) {
   monsterResult.innerHTML = "Searching...";
 
+  // switch this to something else
   axios
     .get(`https://www.dnd5eapi.co/api/monsters`)
     .then((response) => {

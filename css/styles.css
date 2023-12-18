@@ -29,6 +29,11 @@ h1 {
     font-size: x-large;
 }
 
+h2 {
+    font-weight: bold;
+    font-size: large;
+}
+
 .body-links a {
     color: #3f0abb;
 }
