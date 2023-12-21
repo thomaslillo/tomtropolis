@@ -8,6 +8,14 @@ I've used tailwindCSS and HTMX to create this. A fast and lightweight website!
 
 https://5e-bits.github.io
 
+- allow for monster info search
+
+## Weather API
+
+https://openweathermap.org/forecast16
+
+- check for sunny days, and show where the user is on the map
+
 ## Astro Starter Kit: Basics
 
 ```sh

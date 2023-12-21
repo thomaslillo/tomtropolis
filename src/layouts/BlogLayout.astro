@@ -10,20 +10,20 @@ import Footer from '../components/Footer.astro';
         <link rel="icon" href="public/sunlogo.ico" type="ico">
         <title>Tomtropolis</title>
         <!-- Tailwind CSS -->
-        <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
-        <!-- HTMX library -->
-        <script src="https://unpkg.com/htmx.org@1.9.9" integrity="sha384-QFjmbokDn2DjBjq+fM+8LUIVrAgqcNW2s0PjAxHETgRn9l4fvX31ZxDxvwQnyMOX" crossorigin="anonymous"></script>
+        <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">        
         <!-- font awesome for icons and such-->
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
         <!-- google font-->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo+Play">
     </head>
-	<body class="bg-gradient-to-b text-universal min-h-screen flex flex-col">
+	<body class="bg-gradient-to-b text-universal">
         <Navbar />
-        <main class="flex-1 flex items-center justify-center">
+        <main>
+            <div class="container mx-auto p-10">
             <!-- main content goes here -->
             <slot />
             <!-- End of main content -->
+            </div>
         </main>
         <Footer />
     </body>
@@ -54,16 +54,22 @@ import Footer from '../components/Footer.astro';
     .text-universal {
         color: #00021a;
         font-family: 'Cairo Play';
+        padding-top: 2%;
+        padding-bottom: 2%;
     }
 
     h1 {
         font-weight: bold;
         font-size: x-large;
+        padding-top: 2%;
+        padding-bottom: 2%;
     }
 
     h2 {
         font-weight: bold;
         font-size: large;
+        padding-top: 1%;
+        padding-bottom: 1%;
     }
 
     .body-links a {
