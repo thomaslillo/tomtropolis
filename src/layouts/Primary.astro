@@ -7,14 +7,12 @@ import Footer from '../components/Footer.astro';
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="icon" href="assets/sunlogo.ico" type="ico">
+        <link rel="icon" href="public/sunlogo.ico" type="ico">
         <title>Tomtropolis</title>
         <!-- Tailwind CSS -->
         <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
         <!-- HTMX library -->
         <script src="https://unpkg.com/htmx.org@1.9.9" integrity="sha384-QFjmbokDn2DjBjq+fM+8LUIVrAgqcNW2s0PjAxHETgRn9l4fvX31ZxDxvwQnyMOX" crossorigin="anonymous"></script>
-        <!-- custom styles -->
-        <link rel="stylesheet" href="css/styles.css">
         <!-- font awesome for icons and such-->
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
         <!-- google font-->
@@ -23,14 +21,15 @@ import Footer from '../components/Footer.astro';
 	<body class="bg-gradient-to-b text-universal min-h-screen flex flex-col">
         <Navbar />
         <main class="flex-1 flex items-center justify-center">
-            <!-- Your main content goes here -->
+            <!-- main content goes here -->
             <slot />
             <!-- End of main content -->
         </main>
         <Footer />
 </html>
 <style is:global>
-	/* Customize the background color */
+	/* Customize the background color and keyframes */
+
     .bg-gradient-to-b {
         background: linear-gradient(-45deg, #9ab3f5, #a0e5e4 ,#ffd166, #ff6b6b );
         background-size: 400% 400%;
@@ -50,6 +49,7 @@ import Footer from '../components/Footer.astro';
     }
 
     /* Customize text color and font */
+
     .text-universal {
         color: #00021a;
         font-family: 'Cairo Play';
@@ -68,4 +68,5 @@ import Footer from '../components/Footer.astro';
     .body-links a {
         color: #3f0abb;
     }
+
 </style>
