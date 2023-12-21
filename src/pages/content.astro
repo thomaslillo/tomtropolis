@@ -4,10 +4,12 @@ import PrimaryLayout from '../layouts/Primary.astro';
 
 <PrimaryLayout>
     <div id="main-screen-div">         
-        <h1> Some Work & Thoughts </h1>   
-        <p>This is where I will post about my work with spatial data, data engineering, and software development.</p>
-        <ul>
-          <li><a href="/posts/post-1/">Spatial SQL Basics in SQL Server</a></li>
+        <h1 class="text-3xl font-bold text-gray-900 mb-4">Some Work & Thoughts</h1>
+        <p class="text-gray-600 mb-4">This is where I will post about my work with spatial data, data engineering, and software development.</p>
+        <ul class="list-disc pl-5 text-gray-600 text-xl">
+            <li>
+                <a href="/posts/post-1/" class="text-blue-500 hover:text-blue-800">Spatial SQL Basics in SQL Server</a>
+            </li>
         </ul>
     </div>
 </PrimaryLayout>

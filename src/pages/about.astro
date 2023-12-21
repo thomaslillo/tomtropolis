@@ -4,31 +4,58 @@ import PrimaryLayout from '../layouts/Primary.astro';
 
 <PrimaryLayout>
     <div id="main-screen-div">           
-        <div class="p-10 font-sans body-links">
-            <h1>Hi, I'm Tom.</h1>         
-            <h3>
-                <a href="https://github.com/thomaslillo">Github</a> | <a href="https://www.linkedin.com/in/thomaslillo/">LinkedIn</a>
-            </h3>         
-            <p>
-                Currently, a Software Developer at <a href="https://environicsanalytics.com/">Environics Analytics</a> in Toronto where I'm working on our backend, building new APIs with .NET Core, and doing some cloud/big data work.
-                In University, I co-founded a data science conference+workshop company called <a href="https://thomaslillo.github.io/datathon-website-tailwindcss/">Datathon Analytics Events</a>, teaching students to code and connecting them with industry. See an article about it <a href="https://brocku.ca/brock-news/tag/datathon/">here</a> or the <a href="https://thomaslillo.github.io/datathon-website-tailwindcss/">old website</a>.
-                In my free time I work on <a href="https://wovenmining.ca">Woven Mining</a>, where I used machine learning to turn data and documents into insights for the metal mining industry.
+        <div class="p-8 m-6 font-sans body-links bg-fixed bg-gray-100 shadow-md max-w-4xl">
+            <h1 class="text-3xl font-bold text-gray-900 mb-4">Hi, I'm Tom.</h1>
+            <h2 class="text-xl text-gray-700 mb-4">
+                <a href="https://github.com/thomaslillo" class="text-blue-500 hover:text-blue-800">Github</a> | 
+                <a href="https://www.linkedin.com/in/thomaslillo/" class="text-blue-500 hover:text-blue-800">LinkedIn</a>
+            </h2>
+            <p class="text-gray-600 mb-2">
+                Currently, a Software Developer at 
+                <a href="https://environicsanalytics.com/" class="text-blue-500 hover:text-blue-800">Environics Analytics</a> in Toronto where I'm working on our backend, building new APIs with .NET Core, and doing some cloud/big data work.
             </p>
-            <p>
-                My github account above serves as my portfolio if you're interested, but there are also some examples of my work below.
+            <p class="text-gray-600 mb-2">
+                In University, I co-founded a data science conference+workshop company called 
+                <a href="https://thomaslillo.github.io/datathon-website-tailwindcss/" class="text-blue-500 hover:text-blue-800">Datathon Analytics Events</a>, teaching students to code and connecting them with industry. See an article about it 
+                <a href="https://brocku.ca/brock-news/tag/datathon/" class="text-blue-500 hover:text-blue-800">here</a> or the 
+                <a href="https://thomaslillo.github.io/datathon-website-tailwindcss/" class="text-blue-500 hover:text-blue-800">old website</a>.
             </p>
+            <p class="text-gray-600 mb-2">
+                In my free time I work on 
+                <a href="https://wovenmining.ca" class="text-blue-500 hover:text-blue-800">Woven Mining</a>, where I used machine learning to turn data and documents into insights for the metal mining industry.
+            </p>
+            <p class="text-gray-600">
+                My github account above serves as my portfolio if you're interested, but there are also some examples of my work below and on my content page.
+            </p>
+            <br>
             <div>
-                <h3><strong>Things I Like / Have Worked On:</strong></h3>            
-                <p> 
-                    &gt; Spatial data science, I'm an award winning map maker, getting into the <a href="https://map-calendar-esricanada.hub.arcgis.com/pages/aug-2021">ESRI calendar</a> and <a href="https://www.esri.com/en-us/esri-press/browse/the-esri-map-book-volume-38">map book</a>
-                </p>                    
-                <p> 
-                    &gt; Building systems that solve problems or provide answers with data, I've even <a href="https://devpost.com/software/agritech-hackathon-2020-opentourism-niagara">won a Major League Hackathon</a> with a map-based agri-tourim aggregator
-                </p>
-                <p> 
-                    &gt; Helping other people and organizations build successful analytics systems and teams, this includes teaching people skills like python, which I did at the <a href="https://github.com/thomaslillo/spatial-python-bootcamp">Spatial Data Science Bootcamp</a>
-                </p>
+                <h2 class="text-xl mb-4">Things I Like to do / Past Work</h2>
+                <ul class="list-disc space-y-2">
+                    <li class="text-gray-500">
+                        <span class="font-semibold text-black">Spatial data science:</span> Award-winning map maker, featured in the 
+                        <a href="https://map-calendar-esricanada.hub.arcgis.com/pages/aug-2021" class="text-blue-500 hover:text-blue-800">ESRI calendar</a> and 
+                        <a href="https://www.esri.com/en-us/esri-press/browse/the-esri-map-book-volume-38" class="text-blue-500 hover:text-blue-800">ESRI map book</a>.
+                    </li>
+                    <li class="text-gray-500">
+                        <span class="font-semibold text-black">Building systems for problem-solving with data:</span> Winner of a Major League Hackathon with a map-based agri-tourism aggregator, detailed 
+                        <a href="https://devpost.com/software/agritech-hackathon-2020-opentourism-niagara" class="text-blue-500 hover:text-blue-800">here</a>.
+                    </li>
+                    <li class="text-gray-500">
+                        <span class="font-semibold text-black">Helping build successful analytics systems and teams:</span> Includes teaching skills like Python, as done at the 
+                        <a href="https://github.com/thomaslillo/spatial-python-bootcamp" class="text-blue-500 hover:text-blue-800">Spatial Data Science Bootcamp</a>.
+                    </li>
+                    <li class="text-gray-500">
+                        <span class="font-semibold text-black">Volunteering my tech skills for civic good:</span> An example being this 
+                        <a href="https://github.com/CivicTechTO/missing-persons" class="text-blue-500 hover:text-blue-800">Civic Tech Toronto project</a>                                                
+                        for the CBC's 5th Estate, that helps citizens match missing persons database entries to unidentified remains using the RCMP database.                         
+                    </li>
+                </ul>
             </div>                 
         </div>
     </div>
 </PrimaryLayout>
+<style>
+    p {
+        line-height: 1.5;
+    }
+</style>

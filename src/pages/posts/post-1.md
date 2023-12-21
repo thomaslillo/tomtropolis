@@ -1,19 +1,13 @@
 ---
 title: 'Spatial SQL Basics in SQL Server'
-pubDate: 2023-12-20
-description: 'This is the first post of my new Astro blog.'
+subtitle: 'the very very basics, to build off of in future posts'
+date: 2023-12-20
 author: 'Thomas Lillo'
-image:
-    url: 'https://docs.astro.build/assets/full-logo-light.png'
-    alt: 'The full Astro logo.'
 tags: ["astro", "blogging", "learning in public", "spatial", "sql", "data", "gis"]
 layout: ../../layouts/BlogLayout.astro
 ---
-# Understanding Spatial SQL Basics in SQL Server
 
-In my role as a backend developer, where I do a lot of database and data engineering work, I've found myself teaching other developers about spatial sql. I thought this would make a good first blog post. Introducing people to the basics of working with spatial data in SQL server.
-
-In later posts we'll build upon this information to do more advanced analytics and how to use these concepts to build spatail analytics products and reports that can be deliverd via web API.
+In my role as a backend developer, where I do a lot of database and data engineering work, I've found myself teaching other developers about spatial sql. I thought this would make a good first blog post. Introducing people to the basics of working with spatial data in SQL server. In later posts we'll build upon this information to do more advanced analytics and how to use these concepts to build spatail analytics products and reports that can be deliverd via web API.
 
 ## Introduction to Spatial Data in SQL Server
 
@@ -33,7 +27,6 @@ SQL Server uses two primary spatial data types:
 ### Example 1: Creating a Spatial Table
 
 ```sql
-
 CREATE TABLE SpatialTable
 (
     Id int PRIMARY KEY,
@@ -48,7 +41,6 @@ CREATE TABLE SpatialTable
 Insert data using WKT (Well-Known Text) format:
 
 ```sql
-
 INSERT INTO SpatialTable (Id, GeomData, GeoData)
 VALUES (1, geometry::STGeomFromText('POINT(0 0)', 0), geography::Point(0, 0, 4326));
 
@@ -63,7 +55,6 @@ Now that we have some data in SQL Server, we can start working with it using bui
 Find the distance between two points:
 
 ```sql
-
 DECLARE @g geography;
 DECLARE @h geography;
 SET @g = geography::Point(47.65100, -122.34900, 4326);
@@ -76,7 +67,6 @@ SELECT @g.STDistance(@h);
 Determine if one geography intersects another:
 
 ```sql
-
 DECLARE @g geography;
 DECLARE @h geography;
 SET @g = geography::Point(47.65100, -122.34900, 4326);
@@ -92,7 +82,6 @@ Spatial indexing improves the performance of spatial queries. Use 'CREATE SPATIA
 ### Example 5: Creating a Spatial Index
 
 ```sql
-
 CREATE SPATIAL INDEX SI_SpatialTable_GeomData
 ON SpatialTable(GeomData);
 

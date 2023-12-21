@@ -1,31 +1,43 @@
 ---
 import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
+const {frontmatter} = Astro.props;
 ---
 <!doctype html>
 <html lang="en">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="icon" href="public/sunlogo.ico" type="ico">
+        <link rel="icon" href="../../public/sunlogo.ico" type="ico">
         <title>Tomtropolis</title>
         <!-- Tailwind CSS -->
         <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">        
         <!-- font awesome for icons and such-->
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
         <!-- google font-->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fragment+Mono">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo+Play">
     </head>
-	<body class="bg-gradient-to-b text-universal">
-        <Navbar />
-        <main>
+	<body class="bg-gradient-to-b">
+        <div class="header-text">
+            <Navbar />
+        </div>
+        <main class="blog-text">
             <div class="container mx-auto p-10">
-            <!-- main content goes here -->
-            <slot />
-            <!-- End of main content -->
+                <div id="blog-post-header" class="p-6">
+                    <h1 class="text-3xl font-bold text-gray-900 text-center mb-2">{frontmatter.title}</h1>
+                    <h2 class="text-xl text-gray-700 text-center mb-1">{frontmatter.subtitle}</h2>
+                    <h3 class="text-md text-gray-600 text-center mb-1">{frontmatter.date}</h3>
+                    <h3 class="text-md text-gray-600 text-center">By {frontmatter.author}</h3>
+                </div>                          
+                <!-- main content goes here -->
+                <slot />
+                <!-- End of main content -->
             </div>
         </main>
-        <Footer />
+        <div class="header-text">
+            <Footer />
+        </div>        
     </body>
 </html>
 <style is:global>
@@ -51,25 +63,37 @@ import Footer from '../components/Footer.astro';
 
     /* Customize text color and font */
 
-    .text-universal {
+    .blog-text {
+        color: #00021a;
+        font-family: 'Fragment Mono';
+    }
+
+    .header-text {
         color: #00021a;
         font-family: 'Cairo Play';
-        padding-top: 2%;
-        padding-bottom: 2%;
     }
 
     h1 {
         font-weight: bold;
         font-size: x-large;
-        padding-top: 2%;
-        padding-bottom: 2%;
+        line-height: 4;
     }
 
     h2 {
         font-weight: bold;
         font-size: large;
-        padding-top: 1%;
-        padding-bottom: 1%;
+        line-height: 4;
+    }
+
+    h3 {
+        font-weight: bold;
+        font-size: medium;
+        line-height: 3;
+    }
+
+    p {
+        font-size: normal;
+        line-height: 1.5;
     }
 
     .body-links a {
