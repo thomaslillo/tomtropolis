@@ -29,7 +29,7 @@ searchButton.addEventListener("click", () => {
   if (monsterName) {
     searchMonster(monsterName);
   } else {
-    monsterResult.innerHTML = "Please enter a monster name.";
+    monsterResult.innerHTML = "Please enter a monster name, like 'goblin'.";
   }
 });
 
@@ -66,7 +66,7 @@ async function searchMonster(monsterName: string) {
   } catch (error) { 
     console.log(error);
     monsterResult.innerHTML = `Monster not found, please try again with a 
-    different monster or different name for the same moster.`;
+    different monster or different name for the same monster.`;
   }
 }
 </script>
