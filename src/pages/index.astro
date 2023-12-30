@@ -2,20 +2,20 @@
 import PrimaryLayout from '../layouts/Primary.astro';
 ---
 <PrimaryLayout>
-  <div id="main-screen-div" class="p-4 md:p-8">                
-    <h1 class="text-lg md:text-xl py-2">Welcome weary traveler</h1>
-    <p class="text-sm md:text-base">Use the tool below to find more information about the creatures you encounter in 
-      <a href="https://www.aidedd.org/dnd-filters/monsters.php" class="font-serif text-red-800 hover:text-red-500">D&D 5e.</a>
-    </p>
-    <div class="search-container flex flex-col py-2">
-        <input type="text" id="monsterInput" class="py-2 px-4 w-full" placeholder="Enter a monster name" />
-        <button id="searchButton" class="bg-gray-200 hover:bg-blue-400 font-bold py-2 my-4 px-4 rounded">
-            Search
-        </button>
-        <div id="monsterResult" class="monster-result py-2">
-            <!-- Results will be displayed here -->
-        </div>
-    </div>
+<div id="main-screen-div" class="p-4 md:p-8">                
+  <h1 class="text-lg md:text-xl py-2">Welcome weary traveler</h1>
+  <p class="text-sm md:text-base">Use the tool below to find more information about the creatures you encounter in 
+    <a href="https://www.aidedd.org/dnd-filters/monsters.php" class="font-serif text-red-800 hover:text-red-500">D&D 5e.</a>
+  </p>
+  <div class="search-container flex flex-col py-2">
+      <input type="text" id="monsterInput" class="py-2 px-4 w-full" placeholder="Enter a monster name" />
+      <button id="searchButton" class="bg-gray-200 hover:bg-blue-400 font-bold py-2 my-4 px-4 rounded">
+          Search
+      </button>
+      <div id="monsterResult" class="monster-result py-2">
+          <!-- Results will be displayed here -->
+      </div>
+  </div>
 </div>
 </PrimaryLayout>
 <script>

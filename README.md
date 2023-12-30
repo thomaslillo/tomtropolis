@@ -6,7 +6,7 @@ I've used tailwindCSS and HTMX to create this. A fast and lightweight website!
 
 ## Monster API Search Source
 
-https://5e-bits.github.io
+https://www.dnd5eapi.co
 
 - allow for monster info search
 
