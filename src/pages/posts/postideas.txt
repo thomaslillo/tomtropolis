@@ -1,3 +1,6 @@
 - KNIME as an alternative to sql tools or pandas
 - my fav spatial statistical methods
 - what is H3 and why does my uber cost so much
+- an overview of Apache Sedona and why it's important for big data
+- wth is Apache Parquette
+- LLMs on top of web maps, why I'm excited as a Map-Based-UI advocate
