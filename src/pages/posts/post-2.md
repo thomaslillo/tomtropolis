@@ -19,7 +19,9 @@ This database shines in scenarios where simplicity and efficiency are key. It's 
 
 SQLite is so firkin fast, it’s embedded so there’s no networking bs and when you query it, you’re basically just making C based function calls to a file on disk. It’s also been part of Python since 2006!
 
-SQLite is so damn good, the library of congress has said it’s a valid format for them to store data, and keeps a few files in its collection. [Source](https://www.loc.gov/preservation/digital/formats/fdd/fdd000461.shtml)
+SQLite is so damn good, the library of congress has said it’s a valid format for them to store data, and keeps a few files in its collection. 
+
+[Source](https://www.loc.gov/preservation/digital/formats/fdd/fdd000461.shtml)
 
 On top of this, and the reason I fell in love, was my discovery of Datasette, an incredible tool for data analysis and exploration. I encourage everyone to check it out.
 
@@ -34,7 +36,9 @@ This is essentially PostgreSQL, but with a twist. Supabase a lot of capabilities
 It's particularly useful for collaborative applications, like online editors and chat applications, where immediate data sync is crucial. Additionally, it inherits the robustness and versatility of PostgreSQL. The fact that you have all of this stuff on top of Postgres, and can use it’s big network of documentation and plugins, is super awesome. I’ve recommended this as an open-source alternative to things like Firebase (look at me acting as a mouthpiece for Fireship.io) and the friend that actually took my advice for their startup has had a wonderful experience despite only having front-end experience. 
 
 I’ve personally used it for a few of my LLM based experiments, using it as the vector store and “memory” of my little projects and experiments.
-People love to use supabase, a cool example I saw recently here: [some medium post](https://euclideanai.substack.com/p/fastapi-supabase-template-for-llm)
+People love to use Supabase, a cool example I saw recently here: 
+
+[some medium post](https://euclideanai.substack.com/p/fastapi-supabase-template-for-llm)
 
 There is also a really good company behind it that does a good job with their documentation and the product is still new enough that Product Managers haven’t had a chance to overcrowd the web UI in their efforts to secure promotions. 
 
