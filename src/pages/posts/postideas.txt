@@ -4,3 +4,4 @@
 - an overview of Apache Sedona and why it's important for big data
 - wth is Apache Parquette
 - LLMs on top of web maps, why I'm excited as a Map-Based-UI advocate
+- front end frameworks make my head hurt, why I like HTMX
