@@ -9,7 +9,7 @@ layout: ../../layouts/BlogLayout.astro
 
 # My Top 3 Backends of 2023
 
-One of the most pleasurable experiences is coming up with a new side project idea, creating requirements in your head for it once it’s visited by thousands of users a day, and then researching on twitter and hacker news which n^n combo of database and cloud tools you could use to accomplish your objectives.
+One of the most pleasurable experiences is coming up with a new side project idea, creating requirements in your head for it once it’s visited by thousands of users a day, and then researching on twitter and hacker news which n^n^ combo of database and cloud tools you could use to accomplish your objectives.
 
 Over the course of the year 2023, I setup, injected data into, and queried dozens of different databases and data services. This is a list of the three that left me most satisfied.
 
