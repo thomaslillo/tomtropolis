@@ -19,22 +19,22 @@ This database shines in scenarios where simplicity and efficiency are key. It's 
 
 SQLite is so firkin fast, it’s embedded so there’s no networking bs and when you query it, you’re basically just making C based function calls to a file on disk. It’s also been part of Python since 2006!
 
-SQLite is so damn good, the library of congress has said it’s a valid format for them to store data, and keeps a few files in its collection. https://www.loc.gov/preservation/digital/formats/fdd/fdd000461.shtml
+SQLite is so damn good, the library of congress has said it’s a valid format for them to store data, and keeps a few files in its collection. [Source](https://www.loc.gov/preservation/digital/formats/fdd/fdd000461.shtml)
 
 On top of this, and the reason I fell in love, was my discovery of Datasette, an incredible tool for data analysis and exploration. I encourage everyone to check it out.
 
-https://datasette.io/tutorials/data-analysis
+[datasette.io](https://datasette.io/tutorials/data-analysis)
 
 ## 2. Supabase
 
 This is essentially PostgreSQL, but with a twist. Supabase a lot of capabilities on top like auth and a restful API, making it a great option for web and mobile applications requiring real-time data updates.
 
-https://supabase.com/ 
+[Supabase](https://supabase.com/)
 
 It's particularly useful for collaborative applications, like online editors and chat applications, where immediate data sync is crucial. Additionally, it inherits the robustness and versatility of PostgreSQL. The fact that you have all of this stuff on top of Postgres, and can use it’s big network of documentation and plugins, is super awesome. I’ve recommended this as an open-source alternative to things like Firebase (look at me acting as a mouthpiece for Fireship.io) and the friend that actually took my advice for their startup has had a wonderful experience despite only having front-end experience. 
 
 I’ve personally used it for a few of my LLM based experiments, using it as the vector store and “memory” of my little projects and experiments.
-People love to use supabase, a cool example I saw recently here: https://euclideanai.substack.com/p/fastapi-supabase-template-for-llm
+People love to use supabase, a cool example I saw recently here: [some medium post](https://euclideanai.substack.com/p/fastapi-supabase-template-for-llm)
 
 There is also a really good company behind it that does a good job with their documentation and the product is still new enough that Product Managers haven’t had a chance to overcrowd the web UI in their efforts to secure promotions. 
 
@@ -46,7 +46,7 @@ The official line is that Xata is best suited for serverless architectures and a
 
 But really all you need to know is that PostgresSQL and ElasticSearch had a baby and its serverless. 
 
-https://xata.io/docs/concepts/how-it-works
+[How Xata Works](https://xata.io/docs/concepts/how-it-works)
 
 This magnificent service is both affordable and easy to use. It is incredible how many bases are covered with this combo of tools. My only issue is that it’s a little tricky to insert large amounts of data into in a nice way, which made my big data project a little tricky, but I’m sure in the future as it is developed more this will change.
 
@@ -58,4 +58,4 @@ It’s not complicated to setup and make working with alternative data sources, 
 
 Since its something people talk about a lot when working with the Databricks family tools, I’ve also used Snowflake a lot through my job and can safely throw my hat onto the Databricks side of the ring. When I was just a data scientist, I loved Snowflake, but now as a developer and with my growing technical knowledge, Databricks has grown with me in ways where Snowflake has held me back.
 
-https://docs.delta.io/latest/delta-intro.html
+[Intro to Delta](https://docs.delta.io/latest/delta-intro.html)
