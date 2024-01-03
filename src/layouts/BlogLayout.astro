@@ -31,7 +31,9 @@ const {frontmatter} = Astro.props;
                     <h3 class="text-md text-gray-600 text-center">By {frontmatter.author}</h3>
                 </div>                          
                 <!-- main content goes here -->
-                <slot />
+                <div class="post-content">
+                    <slot />
+                </div>
                 <!-- End of main content -->
             </div>
         </main>
@@ -101,7 +103,7 @@ const {frontmatter} = Astro.props;
         color: #3f0abb;
     }
 
-    a {
+    .post-content a {
         color: rgb(43, 0, 145);
         line-height: 1.5;        
         margin-bottom: 1rem;
