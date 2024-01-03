@@ -10,11 +10,9 @@ https://www.dnd5eapi.co
 
 - allow for monster info search
 
-## Weather API
+## TO DO
 
-https://openweathermap.org/forecast16
-
-- check for sunny days, and show where the user is on the map
+- make the monster search better with a dropdown and predictive text
 
 ## Astro Starter Kit: Basics
 
