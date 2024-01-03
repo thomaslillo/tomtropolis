@@ -1,0 +1,3 @@
+- KNIME as an alternative to sql tools or pandas
+- my fav spatial statistical methods
+- what is H3 and why does my uber cost so much
