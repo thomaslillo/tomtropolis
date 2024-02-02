@@ -14,6 +14,9 @@ https://www.dnd5eapi.co
 
 - make the monster search better with a dropdown and predictive text
 
+- https://5e-bits.github.io/docs/api/get-list-of-monsters-with-optional-filtering
+- https://htmx.org/examples/active-search/
+
 ## Astro Starter Kit: Basics
 
 ```sh
