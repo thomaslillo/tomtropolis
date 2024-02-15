@@ -12,9 +12,14 @@ https://www.dnd5eapi.co
 
 ## TO DO
 
-- make the monster search better with a dropdown and predictive text
+improve search exprience and suggestions:
+- allow hitting enter to search
+- order suggestions based on the letters being types instead of alpha. based on letter contains
 
+allow search filtering:
 - https://5e-bits.github.io/docs/api/get-list-of-monsters-with-optional-filtering
+
+intergrate htmx to improve search code readability/maintainability:
 - https://htmx.org/examples/active-search/
 
 ## Astro Starter Kit: Basics
