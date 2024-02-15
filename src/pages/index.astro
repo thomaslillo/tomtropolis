@@ -46,6 +46,9 @@ searchButton.addEventListener("click", () => {
 
 // upon typing in the input, show suggestions
 monsterInput.addEventListener("input", () => {
+  if (monsterInput.value === "") {
+    searchSuggestions.innerHTML = "";
+  }
   const partialName: string = monsterInput.value.toLowerCase();
   if (partialName) {
     const suggestions: string[] = searchMonsterSuggestions(partialName);
@@ -53,7 +56,7 @@ monsterInput.addEventListener("input", () => {
     const topSuggestions: string[] = suggestions.slice(0, 5).filter((suggestion: string) => {
       return suggestion.includes(partialName);
     });
-    searchSuggestions.innerHTML = topSuggestions.join(", ");
+    searchSuggestions.innerHTML = "<p><strong>Suggestions: </strong></p>" + topSuggestions.join(", ");
     console.log(suggestions);
   }
 });
