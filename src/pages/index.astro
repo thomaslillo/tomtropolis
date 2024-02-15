@@ -8,10 +8,11 @@ import PrimaryLayout from '../layouts/Primary.astro';
     <a href="https://www.aidedd.org/dnd-filters/monsters.php" class="font-serif text-red-800 hover:text-red-500">D&D 5e.</a>
   </p>
   <div class="search-container flex flex-col py-2">
-      <input type="text" id="monsterInput" class="py-2 px-4 w-full" placeholder="Enter a monster name" />
+      <input type="text" id="monsterInput" class="py-2 px-4 w-full" placeholder="Enter a monster name" />      
       <button id="searchButton" class="bg-gray-200 hover:bg-blue-400 font-bold py-2 my-4 px-4 rounded">
           Search
       </button>
+      <p id="searchSuggestions" class="text-xs md:text-sm"></p>
       <div id="monsterResult" class="monster-result py-2">
           <!-- Results will be displayed here -->
       </div>
@@ -28,15 +29,32 @@ import PrimaryLayout from '../layouts/Primary.astro';
 const monsterInput = document.getElementById("monsterInput") as HTMLInputElement;
 const searchButton = document.getElementById("searchButton") as HTMLButtonElement;
 const monsterResult = document.getElementById("monsterResult") as HTMLDivElement;
+const searchSuggestions = document.getElementById("searchSuggestions") as HTMLParagraphElement;
+
+getAllMonsters();
 
 //
 // Event Listeners
 searchButton.addEventListener("click", () => {
   const monsterName: string = monsterInput.value.toLowerCase();
   if (monsterName) {
-    searchMonster(monsterName);
+    searchMonster(monsterName.replaceAll(" ", "-").toLowerCase());
   } else {
     monsterResult.innerHTML = "Please enter a monster name, like 'goblin'.";
+  }
+});
+
+// upon typing in the input, show suggestions
+monsterInput.addEventListener("input", () => {
+  const partialName: string = monsterInput.value.toLowerCase();
+  if (partialName) {
+    const suggestions: string[] = searchMonsterSuggestions(partialName);
+    // filter out suggestions that do not match the partial name
+    const topSuggestions: string[] = suggestions.slice(0, 5).filter((suggestion: string) => {
+      return suggestion.includes(partialName);
+    });
+    searchSuggestions.innerHTML = topSuggestions.join(", ");
+    console.log(suggestions);
   }
 });
 
@@ -49,22 +67,23 @@ async function getAllMonsters(): Promise<void> {
     const response: Response = await fetch("https://www.dnd5eapi.co/api/monsters");
     if (response.ok){
       const data: any = await response.json();
-      console.log(data);
+      localStorage.setItem("monsterNames", JSON.stringify(data.results));
+      console.log("Saved monster names to local storage.");      
     } else {
       throw new Error(`${response.status} ${response.statusText}`);
-    }
-    const data: any = await response.json();
-    localStorage.setItem("monsterNames", JSON.stringify(data.results));
-    console.log("Saved monster names to local storage.");
+    }    
   } catch (error) {
     console.log(error);
   }
 }
 
 // search partial monster names in local storage and return suggestions
+// very basic literal search for partial matches
 function searchMonsterSuggestions(partialName: string): string[] {
-  const monsterNames: string[] = JSON.parse(localStorage.getItem("monsterNames"));
-  const suggestions: string[] = monsterNames.filter((monster: string) => {
+  const monsterIndicies: string[] = (JSON.parse(localStorage.getItem("monsterNames")).map((monster: any) => {
+    return monster.index.replaceAll("-", " ");
+  }) as string[]);
+  const suggestions: string[] = monsterIndicies.filter((monster: string) => {
     return monster.includes(partialName);
   });
   return suggestions;
