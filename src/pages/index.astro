@@ -18,14 +18,21 @@ import PrimaryLayout from '../layouts/Primary.astro';
   </div>
 </div>
 </PrimaryLayout>
-<script>
 
+<script>
+//
+// D&D API Requests Script
+
+//
+// Elements
 const monsterInput = document.getElementById("monsterInput") as HTMLInputElement;
 const searchButton = document.getElementById("searchButton") as HTMLButtonElement;
 const monsterResult = document.getElementById("monsterResult") as HTMLDivElement;
 
+//
+// Event Listeners
 searchButton.addEventListener("click", () => {
-  const monsterName = monsterInput.value.toLowerCase();
+  const monsterName: string = monsterInput.value.toLowerCase();
   if (monsterName) {
     searchMonster(monsterName);
   } else {
@@ -33,12 +40,42 @@ searchButton.addEventListener("click", () => {
   }
 });
 
-async function searchMonster(monsterName: string) {
+//
+// Functions
+
+// get all monster names and cache them for search suggestions
+async function getAllMonsters(): Promise<void> {  
+  try {
+    const response: Response = await fetch("https://www.dnd5eapi.co/api/monsters");
+    if (response.ok){
+      const data: any = await response.json();
+      console.log(data);
+    } else {
+      throw new Error(`${response.status} ${response.statusText}`);
+    }
+    const data: any = await response.json();
+    localStorage.setItem("monsterNames", JSON.stringify(data.results));
+    console.log("Saved monster names to local storage.");
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+// search partial monster names in local storage and return suggestions
+function searchMonsterSuggestions(partialName: string): string[] {
+  const monsterNames: string[] = JSON.parse(localStorage.getItem("monsterNames"));
+  const suggestions: string[] = monsterNames.filter((monster: string) => {
+    return monster.includes(partialName);
+  });
+  return suggestions;
+}
+
+// search by getting the monster endpoint data
+async function searchMonster(monsterName: string): Promise<void> {
   // loading message
   monsterResult.innerHTML = "Searching...";
   // search for the monster
   const monsterNameFormatted: string = monsterName.toLowerCase().replace(" ", "-");
-
   try {
     const response: Response = await fetch(
       `https://www.dnd5eapi.co/api/monsters/${monsterNameFormatted}`
@@ -46,7 +83,7 @@ async function searchMonster(monsterName: string) {
     if (!response.ok) {
       throw new Error(`${response.status} ${response.statusText}`);
     }
-    const data = await response.json();
+    const data: any = await response.json();
     console.log(data);
     // display the moster
     // TODO make this more dynamic and a seperate function
@@ -69,4 +106,5 @@ async function searchMonster(monsterName: string) {
     different monster or different name for the same monster.`;
   }
 }
+
 </script>
