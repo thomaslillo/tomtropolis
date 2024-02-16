@@ -87,9 +87,21 @@ function searchMonsterSuggestions(partialName: string): string[] {
     return monster.index.replaceAll("-", " ");
   }) as string[]);
   const suggestions: string[] = monsterIndicies.filter((monster: string) => {
-    return monster.includes(partialName);
+    return monster.includes(partialName) && matchCharactersInOrder(monster, partialName);
   });
   return suggestions;
+}
+
+function matchCharactersInOrder(monsterName: string, partialMonsterName: string): boolean {
+  let partialIndex: number = 0;
+  for (let i = 0; i < partialMonsterName.length; i++) {
+    if (monsterName[i] === partialMonsterName[partialIndex]) {
+      partialIndex++;
+    }
+    if (partialIndex === partialMonsterName.length) {
+      return true;
+    }
+  }
 }
 
 // search by getting the monster endpoint data
