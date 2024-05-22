@@ -10,6 +10,8 @@ https://www.dnd5eapi.co
 
 - allow for monster info search
 
+https://matthewstrom.com/writing/ui-density/
+
 ## TO DO
 
 improve search exprience and suggestions:
