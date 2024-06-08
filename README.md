@@ -14,9 +14,6 @@ https://matthewstrom.com/writing/ui-density/
 
 ## TO DO
 
-USE THIS COOL LIBRARY
-https://botoxparty.github.io/XP.css/#intro
-
 improve search exprience and suggestions:
 - allow hitting enter to search
 - order suggestions based on the letters being types instead of alpha. based on letter contains
