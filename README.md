@@ -14,6 +14,9 @@ https://matthewstrom.com/writing/ui-density/
 
 ## TO DO
 
+color shuffle:
+https://antiwork.com/?bg=2a1f59&txt=dbc64e
+
 improve search exprience and suggestions:
 - allow hitting enter to search
 - order suggestions based on the letters being types instead of alpha. based on letter contains
