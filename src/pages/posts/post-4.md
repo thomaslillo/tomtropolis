@@ -19,9 +19,9 @@ Here's how we turned a typical hackathon idea into something that got the entire
 
 We weren’t just here to play around with tech. We had a few clear goals in mind:
 
-- **Foster cross-department connections**: Many people never interact outside their immediate teams, so this was an opportunity to break silos.
-- **Generate ideas with real potential**: Whether it was boosting revenue, cutting costs, or just making life easier, the aim was to walk away with tangible outcomes.
-- **Give existing ideas a shot**: You’d be surprised how many people already have great ideas but never get the time or resources to explore them.
+> **Foster cross-department connections**: Many people never interact outside their immediate teams, so this was an opportunity to break silos.
+> **Generate ideas with real potential**: Whether it was boosting revenue, cutting costs, or just making life easier, the aim was to walk away with tangible outcomes.
+> **Give existing ideas a shot**: You’d be surprised how many people already have great ideas but never get the time or resources to explore them.
 
 ## Turning a Hackathon into an “Idea-thon”
 
@@ -31,19 +31,19 @@ To make this event more accessible, we rebrand it as an “idea-thon”.
 
 ### Making It Inclusive
 
-- We emphasized that **you didn’t need to be technical** to join. In fact, we wanted a mix of people from client-facing roles, sales, and ops to bring their unique perspectives.
-- People could sign up as **individuals or with one partner**. This way, we could match them with folks from other departments but still let them bring a buddy if they felt anxious.
-- Marketing focused on problem-solving over coding, which helped draw in a crowd that might have otherwise stayed away.
+> We emphasized that **you didn’t need to be technical** to join. In fact, we wanted a mix of people from client-facing roles, sales, and ops to bring their unique perspectives.
+> People could sign up as **individuals or with one partner**. This way, we could match them with folks from other departments but still let them bring a buddy if they felt anxious.
+> Marketing focused on problem-solving over coding, which helped draw in a crowd that might have otherwise stayed away.
 
 ### Judging Criteria
 
 Instead of focusing on hardcore demos, our judging was based on:
 
-- Business Value - what is the ROI? Does it tie into current objectives? Is this a real problem for our clients or employees?
-- Feasibility - has implementation been thought out?
-- Design - is it well thought out and are the ideas accessible and intuitive?
-- Presentation - how well was the project communicated?
-- Creativity - bonus points for out of the box thinking.
+> Business Value - what is the ROI? Does it tie into current objectives? Is this a real problem for our clients or employees?
+> Feasibility - has implementation been thought out?
+> Design - is it well thought out and are the ideas accessible and intuitive?
+> Presentation - how well was the project communicated?
+> Creativity - bonus points for out of the box thinking.
 
 The only thing that teams needed to provide at the end was a presentation of their idea. This turned the event into an opportunity for people of different skillsets to shine, a seasoned salesperson’s client knowledge and presentation skills became as valuable as the skills a senior developer provided.
 
@@ -69,9 +69,9 @@ We also made sure to let people know it was a flexible event and they could leav
 The event exceeded every expectation. Many of the most senior managers, including the president, were present or acted as a judge which was a huge morale booster.
 
 But the success didn’t end with the event:
-- **Spin-offs**: Several departments have since launched smaller initiatives inspired by the ideas presented.
-- **Excitement**: People are already asking when the next idea-thon will happen.
-- **Connections**: Teams that had never worked together had an opportunity to share knowledge and collaborate more often.
+> **Spin-offs**: Several departments have since launched smaller initiatives inspired by the ideas presented.
+> **Excitement**: People are already asking when the next idea-thon will happen.
+> **Connections**: Teams that had never worked together had an opportunity to share knowledge and collaborate more often.
 
 
 ---
