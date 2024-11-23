@@ -45,68 +45,83 @@ const {frontmatter} = Astro.props;
 <style is:global>
 	/* Customize the background color and keyframes */
 
-    .bg-gradient-to-b {
-        background: linear-gradient(-45deg, #9ab3f5, #a0e5e4 ,#ffd166, #ff6b6b );
-        background-size: 400% 400%;
-        animation: gradient 20s ease infinite;
-    }
+	.bg-gradient-to-b {
+	background: linear-gradient(-45deg, #9ab3f5, #a0e5e4 ,#ffd166, #ff6b6b );
+	background-size: 400% 400%;
+	animation: gradient 20s ease infinite;
+	}
+	
+	@keyframes gradient {
+	0% {
+	    background-position: 0% 50%;
+	}
+	50% {
+	    background-position: 100% 50%;
+	}
+	100% {
+	    background-position: 0% 50%;
+	}
+	}
+	
+	/* Customize text color and font */
+	
+	.blog-text {
+	color: #00021a;
+	font-family: 'Fragment Mono';
+	}
+	
+	.header-text {
+	color: #00021a;
+	font-family: 'Cairo Play';
+	}
+	
+	h1 {
+	font-weight: bold;
+	font-size: x-large;
+	line-height: 4;
+	}
+	
+	h2 {
+	font-weight: bold;
+	font-size: large;
+	line-height: 4;
+	}
+	
+	h3 {
+	font-weight: bold;
+	font-size: medium;
+	line-height: 3;
+	}
+	
+	p {
+	font-size: normal;
+	line-height: 1.5;
+	margin-bottom: 1rem;
+	}
+	
+	.body-links a {
+	color: #3f0abb;
+	}
+	
+	.post-content a {
+	color: rgb(43, 0, 145);
+	line-height: 1.5;        
+	margin-bottom: 1rem;
+	}
 
-    @keyframes gradient {
-        0% {
-            background-position: 0% 50%;
-        }
-        50% {
-            background-position: 100% 50%;
-        }
-        100% {
-            background-position: 0% 50%;
-        }
-    }
-
-    /* Customize text color and font */
-
-    .blog-text {
-        color: #00021a;
-        font-family: 'Fragment Mono';
-    }
-
-    .header-text {
-        color: #00021a;
-        font-family: 'Cairo Play';
-    }
-
-    h1 {
-        font-weight: bold;
-        font-size: x-large;
-        line-height: 4;
-    }
-
-    h2 {
-        font-weight: bold;
-        font-size: large;
-        line-height: 4;
-    }
-
-    h3 {
-        font-weight: bold;
-        font-size: medium;
-        line-height: 3;
-    }
-
-    p {
-        font-size: normal;
-        line-height: 1.5;
-        margin-bottom: 1rem;
-    }
-
-    .body-links a {
-        color: #3f0abb;
-    }
-
-    .post-content a {
-        color: rgb(43, 0, 145);
-        line-height: 1.5;        
-        margin-bottom: 1rem;
-    }
+	/* Customize bullet points and numbered lists */
+	ul, ol {
+	    margin-left: 1.5rem;
+	    padding-left: 1.5rem;
+	    list-style-position: inside;
+	}
+	
+	ul {
+	    list-style-type: disc;
+	}
+	
+	ol {
+	    list-style-type: decimal;
+	}
 
 </style>
