@@ -7,7 +7,7 @@ tags: ["data","learning in public","hackathons"]
 layout: ../../layouts/BlogLayout.astro
 ---
 
-With such positive experiences in MLH hackathons and ![running my own](https://brocku.ca/social-sciences/geography/2018/11/21/student-led-datathon-dives-deep-into-growing-industry/), I know how fun these can be, so craving one, I joined forces with two amazing people from the product team who had independently started organizing a hackathon, and our respective managers.
+With such positive experiences in MLH hackathons and [running my own](https://brocku.ca/social-sciences/geography/2018/11/21/student-led-datathon-dives-deep-into-growing-industry/), I know how fun these can be, so craving one, I joined forces with two amazing people from the product team who had independently started organizing a hackathon, and our respective managers.
 
 One of my co-planners had also started a MLH Hackathon while in university, and while we didn’t fully replicate the MLH-style, our foundation helped a ton. My organization is well-established, with a couple of hundred people and a solid focus on selling data. While we have technical teams, most of our employees are client-focused or work in other non-dev roles. 
 
