@@ -8,11 +8,13 @@ import PrimaryLayout from '../layouts/Primary.astro';
     <a href="https://www.aidedd.org/dnd-filters/monsters.php" class="font-serif text-red-800 hover:text-red-500">D&D 5e.</a>
   </p>
   <div class="search-container flex flex-col py-2">
-      <input type="text" id="monsterInput" class="py-2 px-4 w-full" placeholder="Enter a monster name" />      
+      <div class="relative w-full">
+          <input type="text" id="monsterInput" class="py-2 px-4 w-full" placeholder="Enter a monster name" />
+          <div id="suggestionsDropdown" class="absolute z-10 hidden w-full bg-white border border-gray-300 rounded-b shadow-lg max-h-60 overflow-y-auto"></div>
+      </div>
       <button id="searchButton" class="bg-gray-200 hover:bg-blue-400 font-bold py-2 my-4 px-4 rounded">
           Search
       </button>
-      <p id="searchSuggestions" class="text-xs md:text-sm"></p>
       <div id="monsterResult" class="monster-result py-2">
           <!-- Results will be displayed here -->
       </div>
@@ -29,7 +31,7 @@ import PrimaryLayout from '../layouts/Primary.astro';
 const monsterInput = document.getElementById("monsterInput") as HTMLInputElement;
 const searchButton = document.getElementById("searchButton") as HTMLButtonElement;
 const monsterResult = document.getElementById("monsterResult") as HTMLDivElement;
-const searchSuggestions = document.getElementById("searchSuggestions") as HTMLParagraphElement;
+const suggestionsDropdown = document.getElementById("suggestionsDropdown") as HTMLDivElement;
 
 getAllMonsters();
 
@@ -44,20 +46,52 @@ searchButton.addEventListener("click", () => {
   }
 });
 
+// Add event listener for Enter key
+monsterInput.addEventListener("keypress", (event) => {
+  if (event.key === "Enter") {
+    event.preventDefault();
+    searchButton.click();
+  }
+});
+
+// Close dropdown when clicking outside
+document.addEventListener("click", (event) => {
+  if (event.target !== monsterInput && event.target !== suggestionsDropdown) {
+    suggestionsDropdown.classList.add("hidden");
+  }
+});
+
 // upon typing in the input, show suggestions
 monsterInput.addEventListener("input", () => {
-  if (monsterInput.value === "") {
-    searchSuggestions.innerHTML = "";
-  }
   const partialName: string = monsterInput.value.toLowerCase();
-  if (partialName) {
-    const suggestions: string[] = searchMonsterSuggestions(partialName);
-    // filter out suggestions that do not match the partial name
-    const topSuggestions: string[] = suggestions.slice(0, 5).filter((suggestion: string) => {
-      return suggestion.includes(partialName);
+  
+  if (partialName === "") {
+    suggestionsDropdown.classList.add("hidden");
+    suggestionsDropdown.innerHTML = "";
+    return;
+  }
+  
+  const suggestions: string[] = searchMonsterSuggestions(partialName);
+  
+  if (suggestions.length > 0) {
+    // Create dropdown items
+    suggestionsDropdown.innerHTML = "";
+    suggestions.forEach(suggestion => {
+      const item = document.createElement("div");
+      item.textContent = suggestion;
+      item.className = "px-4 py-2 hover:bg-gray-100 cursor-pointer";
+      item.addEventListener("click", () => {
+        monsterInput.value = suggestion;
+        suggestionsDropdown.classList.add("hidden");
+        searchMonster(suggestion.replaceAll(" ", "-").toLowerCase());
+      });
+      suggestionsDropdown.appendChild(item);
     });
-    searchSuggestions.innerHTML = "<p><strong>Suggestions: </strong></p>" + topSuggestions.join(", ");
-    console.log(suggestions);
+    
+    // Show dropdown
+    suggestionsDropdown.classList.remove("hidden");
+  } else {
+    suggestionsDropdown.classList.add("hidden");
   }
 });
 
@@ -81,27 +115,39 @@ async function getAllMonsters(): Promise<void> {
 }
 
 // search partial monster names in local storage and return suggestions
-// very basic literal search for partial matches
 function searchMonsterSuggestions(partialName: string): string[] {
-  const monsterIndicies: string[] = (JSON.parse(localStorage.getItem("monsterNames")).map((monster: any) => {
+  const monsterIndices: string[] = (JSON.parse(localStorage.getItem("monsterNames")).map((monster: any) => {
     return monster.index.replaceAll("-", " ");
   }) as string[]);
-  const suggestions: string[] = monsterIndicies.filter((monster: string) => {
-    return monster.includes(partialName) && matchCharactersInOrder(monster, partialName);
+  
+  // First prioritize monsters that start with the partial name
+  const startsWithMatches: string[] = monsterIndices.filter((monster: string) => {
+    return monster.startsWith(partialName);
   });
-  return suggestions;
+  
+  // Then include monsters where characters match in order
+  const containsMatches: string[] = monsterIndices.filter((monster: string) => {
+    return !monster.startsWith(partialName) && 
+           monster.includes(partialName.charAt(0)) && 
+           matchCharactersInOrder(monster, partialName);
+  });
+  
+  // Combine and return top 5 results
+  return [...startsWithMatches, ...containsMatches].slice(0, 5);
 }
 
 function matchCharactersInOrder(monsterName: string, partialMonsterName: string): boolean {
-  let partialIndex: number = 0;
-  for (let i = 0; i < partialMonsterName.length; i++) {
-    if (monsterName[i] === partialMonsterName[partialIndex]) {
+  let monsterIndex = 0;
+  let partialIndex = 0;
+  
+  while (monsterIndex < monsterName.length && partialIndex < partialMonsterName.length) {
+    if (monsterName[monsterIndex] === partialMonsterName[partialIndex]) {
       partialIndex++;
     }
-    if (partialIndex === partialMonsterName.length) {
-      return true;
-    }
+    monsterIndex++;
   }
+  
+  return partialIndex === partialMonsterName.length;
 }
 
 // search by getting the monster endpoint data
