@@ -1,5 +1,58 @@
 <footer class="py-4 font-sans text-center text-gray-800">        
+    <div class="mt-2">
+        <button id="colorShuffleBtn" class="text-sm px-3 py-1 bg-white bg-opacity-30 rounded hover:bg-opacity-50 flex items-center mx-auto">
+            <i class="fa-solid fa-palette mr-1"></i> Shuffle Colors
+        </button>
+    </div>
     <p>legal stuff (it's all free just don't sue) 
         | Contact me on <strong><a href="https://www.linkedin.com/in/thomaslillo/">LinkedIn</a></strong>
     </p>
 </footer>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const colorShuffleBtn = document.getElementById('colorShuffleBtn') as HTMLButtonElement;
+        
+        // color palette with a dozen different colors
+        const colorPalette = [
+            '#9ab3f5', // Blue
+            '#a0e5e4', // Teal
+            '#ffd166', // Yellow
+            '#ff6b6b', // Red
+            '#6a0572', // Purple
+            '#36d1dc', // Cyan
+            '#ff9a8b', // Salmon
+            '#77dd77', // Light Green
+            '#ffb347', // Orange
+            '#c2ceff', // Light Blue
+            '#ff85ea', // Pink
+            '#84fab0'  // Mint
+        ];
+        
+        colorShuffleBtn.addEventListener('click', () => {
+            // Shuffle the entire color palette
+            const shuffledPalette = [...colorPalette].sort(() => Math.random() - 0.5);
+            
+            // Take the first 4 colors from the shuffled palette
+            const selectedColors = shuffledPalette.slice(0, 4);
+            
+            // Apply the new gradient to both body and .bg-gradient-to-b elements
+            const newGradient = `linear-gradient(-45deg, ${selectedColors.join(', ')})`;
+            (document.body as HTMLBodyElement).style.background = newGradient;
+            (document.body as HTMLBodyElement).style.backgroundSize = '400% 400%';
+            
+            // Apply to all elements with bg-gradient-to-b class
+            const gradientElements = document.querySelectorAll('.bg-gradient-to-b');
+            gradientElements.forEach(element => {
+                (element as HTMLElement).style.background = newGradient;
+                (element as HTMLElement).style.backgroundSize = '400% 400%';
+            });
+            
+            // Add a subtle animation to show the change
+            colorShuffleBtn.classList.add('text-purple-600');
+            setTimeout(() => {
+                colorShuffleBtn.classList.remove('text-purple-600');
+            }, 300);
+        });
+    });
+</script>
