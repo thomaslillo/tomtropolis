@@ -1,5 +1,5 @@
 ---
-title: 'Conway's Law Justifies Me Being in Other People's Business'
+title: 'Conways Law Justifies Me Being in Other People's Business'
 subtitle: 'Its a superpower to be a bit of a nosy person at work'
 date: 2024-04-20
 author: 'Thomas Lillo'
