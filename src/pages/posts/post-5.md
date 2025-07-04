@@ -13,6 +13,8 @@ On every team I've ever worked on I've been able to get things done faster than 
 
 A lot of the time, the issues that we have when working are because we either lack all the context or information or have some black-box external dependency. If you've every encountered something illogical in the overall structure of a piece of software, maybe two things that should connect but don't, there is a chance it's because the people that built those parts didn't talk enough.
 
+---
+
 ## Conway's Law: The Mirror Between Code and Culture
 
 From his paper [How Do Committees Invent?](https://www.melconway.com/Home/pdf/committees.pdf), Conway states that "organizations which design systems (in the broad sense used here) are constrained to produce designs which are copies of the communication structures of these organizations".
