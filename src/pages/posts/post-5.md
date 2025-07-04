@@ -7,6 +7,8 @@ tags: ["astro", "blogging", "learning in public", "data"]
 layout: ../../layouts/BlogLayout.astro
 ---
 
+# Conway's Law Justifies Me Being in Other People's Business
+
 On every team I've ever worked on I've been able to get things done faster than the average team member. Not due to any advantage in skills or brainpower, I'm usually disadvantaged in these domains, because I just ask people questions outside of my normal "information space" as I interact with the different systems (organizational and technical) in my day to day work.
 
 A lot of the time, the issues that we have when working are because we either lack all the context or information or have some black-box external dependency. If you've every encountered something illogical in the overall structure of a piece of software, maybe two things that should connect but don't, there is a chance it's because the people that built those parts didn't talk enough.
