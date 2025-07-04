@@ -25,7 +25,7 @@ In other words, your software architecture will inevitably mirror your org chart
 
 I just do this because I'm a nosy person, the nicer branding is curious, but it's accidentally lead to some positive results that I recognize only in reflection. When you understand Conway's Law, being nosy becomes a legitimate engineering strategy. Every conversation you have with someone outside your immediate team is essentially reconnaissance for better system design. You're not just being social—you're mapping the hidden dependencies and communication gaps that will eventually manifest as technical debt.
 
-#### For everything I encounter at work, I follow:
+### For everything I encounter at work, I follow:
 
 **Warm handoffs:** as a practice give you lots of good information without the need to figure out who to talk to - Instead of just getting a ticket thrown over the wall, actually talk to the person who filed it. You'll learn about their workflow, their pain points, and often discover that what they're asking for isn't actually what they need. I got this from [Will Larson](https://lethain.com/no-wrong-doors).
 
