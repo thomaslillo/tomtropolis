@@ -85,32 +85,32 @@ import PrimaryLayout from '../layouts/Primary.astro';
                 My github account above serves as my portfolio if you're interested, but there are also some examples of my work below and on my content page.
             </p>
             <br>
-            <div>
-                <h2 class="text-xl mb-4">Some things I like with examples:</h2>
-                <ul class="list-disc space-y-2">
-                    <li class="text-gray-500">
+            <section class="likes-section mb-4" aria-label="Things I like with examples">
+                <h2 class="text-xl mb-4 text-gray-900">Some things I like with examples:</h2>
+                <ul class="likes-list list-disc">
+                    <li class="likes-item text-gray-500">
                         <span class="font-semibold text-black">Spatial data science:</span> I'm an award-winning map maker, featured in the 
                         <a href="https://map-calendar-esricanada.hub.arcgis.com/pages/aug-2021" class="text-blue-500 hover:text-blue-800">ESRI calendar</a> and 
                         <a href="https://www.esri.com/en-us/esri-press/browse/the-esri-map-book-volume-38" class="text-blue-500 hover:text-blue-800">ESRI map book</a>.
                     </li>
-                    <li class="text-gray-500">
+                    <li class="likes-item text-gray-500">
                         <span class="font-semibold text-black">Building things to solve problems without over-engineering:</span> 1st place of a Major League Hackathon with a map-based agri-tourism aggregator, detailed 
                         <a href="https://devpost.com/software/agritech-hackathon-2020-opentourism-niagara" class="text-blue-500 hover:text-blue-800">here</a>. Which uses existing spatial data from google maps in a new UI to improve attraction discovery.
                     </li>
-                    <li class="text-gray-500">
+                    <li class="likes-item text-gray-500">
                         <span class="font-semibold text-black">Building successful analytics and software capabilities or systems:</span> Which includes teaching skills, like Python, as I did at the 
                         <a href="https://github.com/thomaslillo/spatial-python-bootcamp" class="text-blue-500 hover:text-blue-800">Spatial Data Science Bootcamp</a>.
                     </li>
-                    <li class="text-gray-500">
+                    <li class="likes-item text-gray-500">
                         <span class="font-semibold text-black">Volunteering my tech skills for civic good:</span> An example being this 
-                        <a href="https://github.com/CivicTechTO/missing-persons" class="text-blue-500 hover:text-blue-800">Civic Tech Toronto project</a>                                                
-                        for the CBC's 5th Estate, that helps citizens match missing persons database entries to unidentified remains using the RCMP database.                         
+                        <a href="https://github.com/CivicTechTO/missing-persons" class="text-blue-500 hover:text-blue-800">Civic Tech Toronto project</a>
+                        for the CBC's 5th Estate, that helps citizens match missing persons database entries to unidentified remains using the RCMP database.
                     </li>
                 </ul>
-                <div class="text-gray-600 m-4 font-sans">
-                    <h3 class="text-xl mb-4 font-mono">If you need data science, analytics, or engineering help reach out to me! My team and I have over 30 years of data experience under our belts.</h3>
+                <div class="text-gray-600 m-4 font-sans text-center">
+                    <h3 class="text-xl mb-4 font-mono">If you need data help reach out to me!</h3>
                 </div>
-            </div>                 
+            </section>
         </div>
         <div class="p-8 m-6 max-w-4xl body-links grid justify-items-center">            
             <h1 class="mb-4">Who can help solve your data issues?</h1>
@@ -196,6 +196,24 @@ import PrimaryLayout from '../layouts/Primary.astro';
         letter-spacing: 0.02em;
     }
 
+    .likes-section {
+        border-radius: 0.75rem;
+        padding: 1rem;
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.95) 0%, rgba(243, 244, 246, 0.7) 100%);
+    }
+
+    .likes-list {
+        display: grid;
+        gap: 1rem;
+        padding-left: 1.5rem;
+    }
+
+    .likes-item {
+        background: #ffffff;
+        border-radius: 0.5rem;
+        padding: 0.75rem 0.9rem;
+    }
+
     @media (max-width: 640px) {
         .career-timeline {
             padding: 0.85rem;
@@ -203,6 +221,14 @@ import PrimaryLayout from '../layouts/Primary.astro';
 
         .timeline-content {
             padding: 0.65rem;
+        }
+
+        .likes-section {
+            padding: 0.85rem;
+        }
+
+        .likes-item {
+            padding: 0.65rem 0.8rem;
         }
     }
 </style>
