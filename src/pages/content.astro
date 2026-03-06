@@ -1,27 +1,169 @@
 ---
 import PrimaryLayout from '../layouts/Primary.astro';
+
+const posts = (await Astro.glob('./posts/*.md'))
+    .sort((a, b) => {
+        const dateA = new Date(a.frontmatter.date).getTime();
+        const dateB = new Date(b.frontmatter.date).getTime();
+        return dateB - dateA;
+    });
+
+const formatDate = (dateValue: string) => new Date(dateValue).toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'short',
+    day: 'numeric'
+});
 ---
 
 <PrimaryLayout>
-    <div id="main-screen-div">         
-        <h1 class="text-3xl font-bold text-gray-900 mb-4">Some Work & Thoughts</h1>
-        <p class="text-gray-600 mb-4">This is where I will post about my work with spatial data, data engineering, and software development.</p>
-        <ul class="list-disc pl-5 text-gray-600 text-xl">
-            <li>
-                <a href="/posts/post-5/" class="text-blue-500 hover:text-blue-800">Conways Law Justifies Me Being in Other Peoples Business</a>
-            </li>
-            <li>
-                <a href="/posts/post-4/" class="text-blue-500 hover:text-blue-800">Running a Hackathon at Work for Fun and Maybe Profit</a>
-            </li>
-            <li>
-                <a href="/posts/post-3/" class="text-blue-500 hover:text-blue-800">A Git Reference Post for Data Analysts</a>
-            </li>
-            <li>
-                <a href="/posts/post-2/" class="text-blue-500 hover:text-blue-800">My Top 3 Backends/Databases for 2023</a>
-            </li>
-            <li>
-                <a href="/posts/post-1/" class="text-blue-500 hover:text-blue-800">Spatial SQL Basics in SQL Server</a>                
-            </li>
-        </ul>
-    </div>
+    <section class="blog-index">
+        <header class="blog-index__header">
+            <p class="blog-index__kicker">THE TOMTROPOLIS JOURNAL</p>
+            <h1>Blog Posts</h1>
+            <p>
+                These are my ideas.
+                Newer articles appear first.
+            </p>
+        </header>
+
+        <div class="blog-index__list">
+            {posts.map((post) => (
+                <article class="blog-card">
+                    <p class="blog-card__meta">
+                        <span>{formatDate(post.frontmatter.date)}</span>
+                        <span>By {post.frontmatter.author}</span>
+                    </p>
+                    <h2>
+                        <a href={post.url}>{post.frontmatter.title}</a>
+                    </h2>
+                    <p class="blog-card__subtitle">{post.frontmatter.subtitle}</p>
+                    {post.frontmatter.tags && (
+                        <ul class="blog-card__tags" aria-label="Post tags">
+                            {post.frontmatter.tags.map((tag: string) => <li>{tag}</li>)}
+                        </ul>
+                    )}
+                </article>
+            ))}
+        </div>
+    </section>
 </PrimaryLayout>
+
+<style>
+    .blog-index {
+        width: min(980px, calc(100vw - 2.5rem));
+        margin: 2.5rem auto;
+        color: #0f172a;
+    }
+
+    .blog-index__header {
+        background: rgba(255, 255, 255, 0.78);
+        border: 1px solid rgba(15, 23, 42, 0.14);
+        border-radius: 16px;
+        padding: 2rem;
+        box-shadow: 0 18px 40px rgba(15, 23, 42, 0.12);
+        margin-bottom: 1.5rem;
+    }
+
+    .blog-index__kicker {
+        margin: 0 0 0.7rem;
+        font-size: 0.8rem;
+        letter-spacing: 0.1em;
+        color: #334155;
+        font-weight: 700;
+    }
+
+    .blog-index__header h1 {
+        font-size: clamp(1.7rem, 3vw, 2.2rem);
+        line-height: 1.15;
+        margin: 0;
+    }
+
+    .blog-index__header p {
+        margin: 0.9rem 0 0;
+        line-height: 1.6;
+        color: #334155;
+        max-width: 70ch;
+    }
+
+    .blog-index__list {
+        display: grid;
+        gap: 1rem;
+    }
+
+    .blog-card {
+        background: rgba(255, 255, 255, 0.92);
+        border: 1px solid rgba(15, 23, 42, 0.12);
+        border-radius: 14px;
+        padding: 1.2rem 1.35rem;
+        box-shadow: 0 8px 24px rgba(15, 23, 42, 0.09);
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .blog-card:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 12px 28px rgba(15, 23, 42, 0.15);
+    }
+
+    .blog-card__meta {
+        margin: 0;
+        color: #475569;
+        display: flex;
+        gap: 0.75rem;
+        font-size: 0.88rem;
+        flex-wrap: wrap;
+    }
+
+    .blog-card h2 {
+        margin: 0.55rem 0 0;
+        font-size: clamp(1.2rem, 2.4vw, 1.5rem);
+        line-height: 1.25;
+    }
+
+    .blog-card h2 a {
+        color: #0f172a;
+        text-decoration: none;
+    }
+
+    .blog-card h2 a:hover {
+        text-decoration: underline;
+    }
+
+    .blog-card__subtitle {
+        margin: 0.6rem 0 0;
+        color: #334155;
+        line-height: 1.6;
+    }
+
+    .blog-card__tags {
+        list-style: none;
+        margin: 0.9rem 0 0;
+        padding: 0;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+
+    .blog-card__tags li {
+        border: 1px solid rgba(30, 41, 59, 0.2);
+        border-radius: 999px;
+        padding: 0.2rem 0.65rem;
+        font-size: 0.76rem;
+        color: #1e293b;
+        background: rgba(248, 250, 252, 0.95);
+    }
+
+    @media (max-width: 640px) {
+        .blog-index {
+            width: min(980px, calc(100vw - 1.35rem));
+            margin: 1.2rem auto;
+        }
+
+        .blog-index__header {
+            padding: 1.3rem;
+        }
+
+        .blog-card {
+            padding: 1rem;
+        }
+    }
+</style>

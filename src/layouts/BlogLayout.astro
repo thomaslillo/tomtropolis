@@ -9,119 +9,182 @@ const {frontmatter} = Astro.props;
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="icon" href="/sunlogo.ico" type="ico">
-        <title>Tomtropolis</title>
+		<title>{frontmatter.title} | Tomtropolis</title>
         <!-- Tailwind CSS -->
         <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">        
         <!-- font awesome for icons and such-->
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
         <!-- google font-->
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fragment+Mono">
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo+Play">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
     </head>
-	<body class="bg-gradient-to-b">
-        <div class="header-text">
-            <Navbar />
-        </div>
-        <main class="blog-text">
-            <div class="container mx-auto p-10">
-                <div id="blog-post-header" class="p-6">
-                    <h1 class="text-3xl font-bold text-gray-900 text-center mb-2">{frontmatter.title}</h1>
-                    <h2 class="text-xl text-gray-700 text-center mb-1">{frontmatter.subtitle}</h2>
-                    <h3 class="text-md text-gray-600 text-center mb-1">{frontmatter.date}</h3>
-                    <h3 class="text-md text-gray-600 text-center">By {frontmatter.author}</h3>
-                </div>                          
-                <!-- main content goes here -->
-                <div class="post-content">
-                    <slot />
+	<body class="blog-page">
+		<Navbar />
+		<main>
+			<article class="post-shell">
+				<header class="post-header">
+					<p class="post-kicker">TOMS BLOG</p>
+					<h1>{frontmatter.title}</h1>
+					<p class="post-subtitle">{frontmatter.subtitle}</p>
+					<p class="post-meta">{frontmatter.date} <span aria-hidden="true">/</span> By {frontmatter.author}</p>
+				</header>
+				<div class="post-body">
+					<slot />
                 </div>
-                <!-- End of main content -->
-            </div>
+			</article>
         </main>
-        <div class="header-text">
-            <Footer />
-        </div>        
+		<Footer />
     </body>
 </html>
 <style is:global>
-	/* Customize the background color and keyframes */
-
-	.bg-gradient-to-b {
-	background: linear-gradient(-45deg, #9ab3f5, #a0e5e4 ,#ffd166, #ff6b6b );
-	background-size: 400% 400%;
-	animation: gradient 20s ease infinite;
-	}
-	
-	@keyframes gradient {
-	0% {
-	    background-position: 0% 50%;
-	}
-	50% {
-	    background-position: 100% 50%;
-	}
-	100% {
-	    background-position: 0% 50%;
-	}
-	}
-	
-	/* Customize text color and font */
-	
-	.blog-text {
-	color: #00021a;
-	font-family: 'Fragment Mono';
-	}
-	
-	.header-text {
-	color: #00021a;
-	font-family: 'Cairo Play';
-	}
-	
-	h1 {
-	font-weight: bold;
-	font-size: x-large;
-	line-height: 4;
-	}
-	
-	h2 {
-	font-weight: bold;
-	font-size: large;
-	line-height: 4;
-	}
-	
-	h3 {
-	font-weight: bold;
-	font-size: medium;
-	line-height: 3;
-	}
-	
-	p {
-	font-size: normal;
-	line-height: 1.5;
-	margin-bottom: 1rem;
-	}
-	
-	.body-links a {
-	color: #3f0abb;
-	}
-	
-	.post-content a {
-	color: rgb(43, 0, 145);
-	line-height: 1.5;        
-	margin-bottom: 1rem;
+	.blog-page {
+		margin: 0;
+		color: #0f172a;
+		background:
+			radial-gradient(circle at 10% 0%, #dbeafe 0%, rgba(219, 234, 254, 0) 45%),
+			radial-gradient(circle at 95% 5%, #fce7f3 0%, rgba(252, 231, 243, 0) 40%),
+			#eef2f7;
+		font-family: 'IBM Plex Sans', sans-serif;
+		min-height: 100vh;
 	}
 
-	/* Customize bullet points and numbered lists */
-	ul, ol {
-	    margin-left: 1.5rem;
-	    padding-left: 1.5rem;
-	    list-style-position: inside;
+	.post-shell {
+		width: min(780px, calc(100vw - 2.5rem));
+		margin: 1.5rem auto 2.5rem;
+		background: rgba(255, 255, 255, 0.9);
+		border: 1px solid rgba(15, 23, 42, 0.15);
+		border-radius: 16px;
+		box-shadow: 0 16px 46px rgba(15, 23, 42, 0.14);
+		overflow: hidden;
 	}
-	
-	ul {
-	    list-style-type: disc;
+
+	.post-header {
+		padding: 2rem 2rem 1.5rem;
+		border-bottom: 1px solid rgba(148, 163, 184, 0.35);
+		background: linear-gradient(180deg, rgba(241, 245, 249, 0.95) 0%, rgba(255, 255, 255, 0.98) 100%);
 	}
-	
-	ol {
-	    list-style-type: decimal;
+
+	.post-kicker {
+		margin: 0;
+		font-size: 0.8rem;
+		letter-spacing: 0.1em;
+		font-weight: 700;
+		color: #334155;
+	}
+
+	.post-header h1 {
+		margin: 0.65rem 0 0;
+		line-height: 1.12;
+		font-size: clamp(1.7rem, 4.2vw, 2.5rem);
+	}
+
+	.post-subtitle {
+		margin: 0.95rem 0 0;
+		line-height: 1.55;
+		color: #334155;
+		font-size: 1.06rem;
+		max-width: 66ch;
+	}
+
+	.post-meta {
+		margin: 1rem 0 0;
+		color: #475569;
+		font-size: 0.9rem;
+		display: flex;
+		gap: 0.6rem;
+		align-items: center;
+		flex-wrap: wrap;
+	}
+
+	.post-body {
+		padding: 2rem;
+		line-height: 1.75;
+		font-size: 1.03rem;
+		color: #1e293b;
+	}
+
+	.post-body p,
+	.post-body ul,
+	.post-body ol,
+	.post-body pre,
+	.post-body blockquote {
+		margin: 0 0 1.2rem;
+	}
+
+	.post-body h2,
+	.post-body h3 {
+		margin: 2rem 0 0.9rem;
+		line-height: 1.3;
+		color: #0f172a;
+	}
+
+	.post-body h2 {
+		font-size: clamp(1.3rem, 2.8vw, 1.7rem);
+	}
+
+	.post-body h3 {
+		font-size: clamp(1.1rem, 2.2vw, 1.35rem);
+	}
+
+	.post-body a {
+		color: #0b5ed7;
+		text-decoration-thickness: 1px;
+		text-underline-offset: 0.15em;
+	}
+
+	.post-body a:hover {
+		color: #093b85;
+	}
+
+	.post-body ul,
+	.post-body ol {
+		padding-left: 1.4rem;
+	}
+
+	.post-body li {
+		margin-bottom: 0.5rem;
+	}
+
+	.post-body code {
+		font-family: 'IBM Plex Mono', monospace;
+		background: rgba(226, 232, 240, 0.75);
+		border-radius: 6px;
+		padding: 0.12rem 0.35rem;
+		font-size: 0.92em;
+		color: #0f172a;
+	}
+
+	.post-body pre {
+		overflow-x: auto;
+		border-radius: 10px;
+		border: 1px solid rgba(51, 65, 85, 0.15);
+		background: #0f172a;
+		padding: 1rem;
+	}
+
+	.post-body pre code {
+		background: transparent;
+		padding: 0;
+		color: #e2e8f0;
+	}
+
+	.post-body blockquote {
+		border-left: 4px solid #94a3b8;
+		padding: 0.15rem 0 0.15rem 1rem;
+		color: #334155;
+		background: rgba(241, 245, 249, 0.8);
+	}
+
+	@media (max-width: 640px) {
+		.post-shell {
+			width: min(780px, calc(100vw - 1.35rem));
+			margin: 0.9rem auto 1.25rem;
+			border-radius: 12px;
+		}
+
+		.post-header,
+		.post-body {
+			padding: 1.15rem;
+		}
 	}
 
 </style>
