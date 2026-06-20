@@ -1,10 +1,22 @@
-<footer class="py-4 font-sans text-center text-gray-800">        
+<footer class="py-4 font-sans text-center text-gray-800">
     <div class="mt-2">
         <button id="colorShuffleBtn" class="text-sm px-3 py-1 bg-white bg-opacity-30 rounded hover:bg-opacity-50 flex items-center mx-auto">
             <i class="fa-solid fa-palette mr-1"></i> Shuffle Colors
         </button>
     </div>
-    <p>All these ideas are free 
+    <link rel="stylesheet" href="https://townsquare.cauenapier.com/widget.css" />
+    <div id="townsquare-root"></div>
+    <script type="module" is:inline>
+        import { mountTownSquare } from "https://townsquare.cauenapier.com/townsquare.mjs";
+
+        mountTownSquare(document.getElementById("townsquare-root"), {
+            serverOrigin: "https://townsquare.cauenapier.com",
+            siteKey: "site_FOqccrys6vKapXfb",
+            scene: {"benches":2,"benchXs":[0.18,0.69],"trees":3,"treeXs":[0.77,0.61,0.26],"lamps":0,"lampXs":[],"birds":4},
+            theme: "host"
+        });
+    </script>
+    <p>All these ideas are free
         | Contact me on <strong><a href="https://www.linkedin.com/in/thomaslillo/">LinkedIn</a></strong>
     </p>
 </footer>
