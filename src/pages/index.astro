@@ -7,184 +7,20 @@ import PrimaryLayout from '../layouts/Primary.astro';
   <p class="text-sm md:text-base">Use the tool below to find more information about the creatures you encounter in 
     <a href="https://www.aidedd.org/dnd-filters/monsters.php" class="font-serif text-red-800 hover:text-red-500">D&D 5e.</a>
   </p>
-  <div class="search-container flex flex-col py-2">
+  <form id="monsterSearchForm" class="search-container flex flex-col py-2">
       <div class="relative w-full">
-          <input type="text" id="monsterInput" class="py-2 px-4 w-full" placeholder="Enter a monster name" />
-          <div id="suggestionsDropdown" class="absolute z-10 hidden w-full bg-white border border-gray-300 rounded-b shadow-lg max-h-60 overflow-y-auto"></div>
+          <label for="monsterInput" class="sr-only">Monster name</label>
+          <input type="search" id="monsterInput" class="py-2 px-4 w-full" placeholder="Enter a monster name" autocomplete="off" aria-autocomplete="list" aria-controls="suggestionsDropdown" aria-expanded="false" />
+          <div id="suggestionsDropdown" class="absolute z-10 hidden w-full bg-white border border-gray-300 rounded-b shadow-lg max-h-60 overflow-y-auto" role="listbox"></div>
       </div>
-      <button id="searchButton" class="bg-gray-200 hover:bg-blue-400 font-bold py-2 my-4 px-4 rounded">
+      <button id="searchButton" type="submit" class="bg-gray-200 hover:bg-blue-400 font-bold py-2 my-4 px-4 rounded">
           Search
       </button>
-      <div id="monsterResult" class="monster-result py-2">
+      <div id="monsterResult" class="monster-result py-2" aria-live="polite">
           <!-- Results will be displayed here -->
       </div>
-  </div>
+  </form>
 </div>
 </PrimaryLayout>
 
-<script>
-//
-// D&D API Requests Script
-
-//
-// Elements
-const monsterInput = document.getElementById("monsterInput") as HTMLInputElement;
-const searchButton = document.getElementById("searchButton") as HTMLButtonElement;
-const monsterResult = document.getElementById("monsterResult") as HTMLDivElement;
-const suggestionsDropdown = document.getElementById("suggestionsDropdown") as HTMLDivElement;
-
-getAllMonsters();
-
-//
-// Event Listeners
-searchButton.addEventListener("click", () => {
-  const monsterName: string = monsterInput.value.toLowerCase();
-  if (monsterName) {
-    searchMonster(monsterName.replaceAll(" ", "-").toLowerCase());
-  } else {
-    monsterResult.innerHTML = "Please enter a monster name, like 'goblin'.";
-  }
-});
-
-// Add event listener for Enter key
-monsterInput.addEventListener("keypress", (event) => {
-  if (event.key === "Enter") {
-    event.preventDefault();
-    searchButton.click();
-  }
-});
-
-// Close dropdown when clicking outside
-document.addEventListener("click", (event) => {
-  if (event.target !== monsterInput && event.target !== suggestionsDropdown) {
-    suggestionsDropdown.classList.add("hidden");
-  }
-});
-
-// upon typing in the input, show suggestions
-monsterInput.addEventListener("input", () => {
-  const partialName: string = monsterInput.value.toLowerCase();
-  
-  if (partialName === "") {
-    suggestionsDropdown.classList.add("hidden");
-    suggestionsDropdown.innerHTML = "";
-    return;
-  }
-  
-  const suggestions: string[] = searchMonsterSuggestions(partialName);
-  
-  if (suggestions.length > 0) {
-    // Create dropdown items
-    suggestionsDropdown.innerHTML = "";
-    suggestions.forEach(suggestion => {
-      const item = document.createElement("div");
-      item.textContent = suggestion;
-      item.className = "px-4 py-2 hover:bg-gray-100 cursor-pointer";
-      item.addEventListener("click", () => {
-        monsterInput.value = suggestion;
-        suggestionsDropdown.classList.add("hidden");
-        searchMonster(suggestion.replaceAll(" ", "-").toLowerCase());
-      });
-      suggestionsDropdown.appendChild(item);
-    });
-    
-    // Show dropdown
-    suggestionsDropdown.classList.remove("hidden");
-  } else {
-    suggestionsDropdown.classList.add("hidden");
-  }
-});
-
-//
-// Functions
-
-// get all monster names and cache them for search suggestions
-async function getAllMonsters(): Promise<void> {  
-  try {
-    const response: Response = await fetch("https://www.dnd5eapi.co/api/monsters");
-    if (response.ok){
-      const data: any = await response.json();
-      localStorage.setItem("monsterNames", JSON.stringify(data.results));
-      console.log("Saved monster names to local storage.");      
-    } else {
-      throw new Error(`${response.status} ${response.statusText}`);
-    }    
-  } catch (error) {
-    console.log(error);
-  }
-}
-
-// search partial monster names in local storage and return suggestions
-function searchMonsterSuggestions(partialName: string): string[] {
-  const monsterIndices: string[] = (JSON.parse(localStorage.getItem("monsterNames")).map((monster: any) => {
-    return monster.index.replaceAll("-", " ");
-  }) as string[]);
-  
-  // First prioritize monsters that start with the partial name
-  const startsWithMatches: string[] = monsterIndices.filter((monster: string) => {
-    return monster.startsWith(partialName);
-  });
-  
-  // Then include monsters where characters match in order
-  const containsMatches: string[] = monsterIndices.filter((monster: string) => {
-    return !monster.startsWith(partialName) && 
-           monster.includes(partialName.charAt(0)) && 
-           matchCharactersInOrder(monster, partialName);
-  });
-  
-  // Combine and return top 5 results
-  return [...startsWithMatches, ...containsMatches].slice(0, 5);
-}
-
-function matchCharactersInOrder(monsterName: string, partialMonsterName: string): boolean {
-  let monsterIndex = 0;
-  let partialIndex = 0;
-  
-  while (monsterIndex < monsterName.length && partialIndex < partialMonsterName.length) {
-    if (monsterName[monsterIndex] === partialMonsterName[partialIndex]) {
-      partialIndex++;
-    }
-    monsterIndex++;
-  }
-  
-  return partialIndex === partialMonsterName.length;
-}
-
-// search by getting the monster endpoint data
-async function searchMonster(monsterName: string): Promise<void> {
-  // loading message
-  monsterResult.innerHTML = "Searching...";
-  // search for the monster
-  const monsterNameFormatted: string = monsterName.toLowerCase().replace(" ", "-");
-  try {
-    const response: Response = await fetch(
-      `https://www.dnd5eapi.co/api/monsters/${monsterNameFormatted}`
-    );
-    if (!response.ok) {
-      throw new Error(`${response.status} ${response.statusText}`);
-    }
-    const data: any = await response.json();
-    console.log(data);
-    // display the moster
-    // TODO make this more dynamic and a seperate function
-    monsterResult.innerHTML = `
-    <div class="m-2 font-mono">
-      <h1>${data.name}</h1>
-      <p><strong>Type:</strong> ${data.type}</p>
-      ${data.subtype ? `<p><strong>Subtype:</strong> ${data.subtype}</p>` : ''}
-      <p><strong>Size:</strong> ${data.size}</p>
-      <p><strong>Alignment:</strong> ${data.alignment}</p>
-      <p><strong>Health:</strong> ${data.hit_points}</p>
-      <p><strong>Languages:</strong> ${data.languages}</p>
-      <p><strong>Challenge Rating:</strong> ${data.challenge_rating}</p>
-      ${ data.image ? `<img src="https://www.dnd5eapi.co${data.image}">` : '' }      
-    </div>
-    `;    
-  } catch (error) { 
-    console.log(error);
-    monsterResult.innerHTML = `Monster not found, please try again with a 
-    different monster or different name for the same monster.`;
-  }
-}
-
-</script>
+<script src="../scripts/monster-search.ts"></script>

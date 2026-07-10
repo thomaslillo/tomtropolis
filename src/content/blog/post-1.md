@@ -4,7 +4,6 @@ subtitle: 'the very very basics, to build off of in future posts'
 date: 2023-12-20
 author: 'Thomas Lillo'
 tags: ["astro", "blogging", "learning in public", "spatial", "sql", "data", "gis"]
-layout: ../../layouts/BlogLayout.astro
 ---
 
 In my role as a backend developer, where I do a lot of database and data engineering work, I've found myself teaching other developers about spatial sql. I thought this would make a good first blog post. Introducing people to the basics of working with spatial data in SQL server. In later posts we'll build upon this information to do more advanced analytics and how to use these concepts to build spatail analytics products and reports that can be deliverd via web API.

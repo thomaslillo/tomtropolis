@@ -4,7 +4,6 @@ subtitle: "It's about time I make something I can just link people to"
 date: 2024-05-20
 author: 'Thomas Lillo'
 tags: ["data","learning in public","backends","version control","git"]
-layout: ../../layouts/BlogLayout.astro
 ---
 
 # A Git Reference Post for Data Analysts

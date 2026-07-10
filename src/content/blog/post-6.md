@@ -4,7 +4,6 @@ subtitle: 'Applying Gestalt Principles to SQL'
 date: 2026-01-09
 author: 'Thomas Lillo'
 tags: ["astro", "blogging", "learning in public", "sql"]
-layout: ../../layouts/BlogLayout.astro
 ---
 
 ## What Are Gestalt Principles

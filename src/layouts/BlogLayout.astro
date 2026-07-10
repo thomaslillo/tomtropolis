@@ -1,25 +1,19 @@
 ---
 import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
+import Head from '../components/Head.astro';
+import '../styles/global.css';
 const {frontmatter} = Astro.props;
 ---
 <!doctype html>
 <html lang="en">
     <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="icon" href="/sunlogo.ico" type="ico">
-		<title>{frontmatter.title} | Tomtropolis</title>
-        <!-- Tailwind CSS -->
-        <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">        
-        <!-- font awesome for icons and such-->
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-        <!-- google font-->
-		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+        <Head title={`${frontmatter.title} | Tomtropolis`} description={frontmatter.subtitle} />
     </head>
 	<body class="blog-page">
 		<Navbar />
-		<main>
+        <a class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded focus:bg-white focus:px-4 focus:py-2" href="#main-content">Skip to content</a>
+		<main id="main-content">
 			<article class="post-shell">
 				<header class="post-header">
 					<p class="post-kicker">TOMS BLOG</p>

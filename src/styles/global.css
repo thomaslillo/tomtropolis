@@ -1,14 +1,32 @@
+@import "tailwindcss";
+
+@theme {
+    --font-sans: 'Cairo Play', system-ui, sans-serif;
+}
+
 body {
-    background: linear-gradient(-45deg, #9ab3f5, #a0e5e4 ,#ffd166, #ff6b6b );
+    --site-gradient: linear-gradient(-45deg, #9ab3f5, #a0e5e4, #ffd166, #ff6b6b);
+    background-image: var(--site-gradient);
     background-size: 400% 400%;
     animation: gradient 20s ease infinite;
     color: #00021a;
-    font-family: 'Cairo Play';
+    font-family: 'Cairo Play', system-ui, sans-serif;
+    margin: 0;
 }
 
 @keyframes gradient {
     0% {
         background-position: 0% 50%;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+            animation-duration: 0.01ms !important;
+            animation-iteration-count: 1 !important;
+            scroll-behavior: auto !important;
+        }
     }
     50% {
         background-position: 100% 50%;

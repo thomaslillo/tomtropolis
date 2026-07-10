@@ -4,7 +4,6 @@ subtitle: "I'm a sucker for hype, but these three met my expectations"
 date: 2024-01-02
 author: 'Thomas Lillo'
 tags: ["supabase","sqlite","xata","learning in public","backends","sql","data"]
-layout: ../../layouts/BlogLayout.astro
 ---
 
 # My Top 3 Backends of 2023
