@@ -30,3 +30,7 @@ Run commands from the repository root:
 | `npm run preview` | Preview the production build locally |
 
 See the [Astro documentation](https://docs.astro.build) for framework details.
+
+## References
+
+https://matthewstrom.com/writing/ui-density/
