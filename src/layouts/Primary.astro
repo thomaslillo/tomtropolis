@@ -3,11 +3,21 @@ import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
 import Head from '../components/Head.astro';
 import '../styles/global.css';
+
+interface Props {
+    title?: string;
+    description?: string;
+}
+
+const {
+    title = 'Tomtropolis',
+    description = "Tom Lillo's personal website and D&D 5e monster search tool.",
+} = Astro.props;
 ---
 <!doctype html>
 <html lang="en">
     <head>
-        <Head title="Tomtropolis" description="Tom Lillo's personal website and D&D 5e monster search tool." />
+        <Head title={title} description={description} />
     </head>
 	<body class="site-background text-universal min-h-screen flex flex-col">
         <a class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded focus:bg-white focus:px-4 focus:py-2" href="#main-content">Skip to content</a>

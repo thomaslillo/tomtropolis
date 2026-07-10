@@ -1,79 +1,32 @@
-# My Blazingly Fast Personal Website
+# Tomtropolis
 
-This is my ongoing personal website, an eventual upgrade from the current version at thomaslillo.com
+Tomtropolis is Tom Lillo's personal website, built with Astro and deployed to Vercel.
+The homepage includes a D&D 5e monster search powered by the
+[D&D 5e API](https://www.dnd5eapi.co). Articles are stored in the typed Astro
+content collection at `src/content/blog`.
 
-I've used tailwindCSS and HTMX to create this. A fast and lightweight website!
-
-## Monster API Search Source
-
-https://www.dnd5eapi.co
-
-- allow for monster info search
-
-https://matthewstrom.com/writing/ui-density/
-
-## TO DO
-
-color shuffle inspo:
-https://antiwork.com/?bg=2a1f59&txt=dbc64e
-
-allow search filtering:
-- https://5e-bits.github.io/docs/api/get-list-of-monsters-with-optional-filtering
-
-intergrate htmx to improve search code readability/maintainability:
-- https://htmx.org/examples/active-search/
-
-## Astro Starter Kit: Basics
-
-```sh
-npm create astro@latest -- --template basics
-```
-
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
-
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
-
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
-
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
+## Project structure
 
 ```text
 /
-├── public/
-│   └── favicon.svg
+├── public/              # Static assets
 ├── src/
-│   ├── components/
-│   │   └── Card.astro
-│   ├── layouts/
-│   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
+│   ├── content/blog/    # Markdown blog posts
+│   ├── components/      # Shared navigation, metadata, and footer
+│   ├── layouts/         # Primary and blog layouts
+│   └── pages/           # Route components
 └── package.json
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+## Commands
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+Run commands from the repository root:
 
-Any static assets, like images, can be placed in the `public/` directory.
+| Command | Action |
+| :-- | :-- |
+| `npm install` | Install dependencies |
+| `npm run dev` | Start the local development server |
+| `npm run build` | Build the production site |
+| `npm run preview` | Preview the production build locally |
 
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+See the [Astro documentation](https://docs.astro.build) for framework details.

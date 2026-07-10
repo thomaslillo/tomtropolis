@@ -13,7 +13,7 @@ const currentPath = Astro.url.pathname;
                 <a href="/about" class:list={["text-sm md:text-xl", { "font-bold underline": currentPath === "/about" }]} aria-current={currentPath === "/about" ? "page" : undefined}>/about</a>
             </li>
             <li class="px-4">
-                <a href="/content" class:list={["text-sm md:text-xl", { "font-bold underline": currentPath === "/content" }]} aria-current={currentPath === "/content" ? "page" : undefined}>/content</a>
+                <a href="/content" class:list={["text-sm md:text-xl", { "font-bold underline": currentPath === "/content" || currentPath.startsWith("/posts") }]} aria-current={currentPath === "/content" || currentPath.startsWith("/posts") ? "page" : undefined}>/content</a>
             </li>
         </ul>
     </div>

@@ -2,7 +2,7 @@
 import PrimaryLayout from '../layouts/Primary.astro';
 ---
 
-<PrimaryLayout>
+<PrimaryLayout title="About Tom | Tomtropolis" description="Learn about Tom Lillo's software engineering and data career.">
     <div id="main-screen-div">           
         <div class="p-8 m-6 font-sans body-links bg-fixed bg-gray-100 shadow-md max-w-4xl">
             <h1 class="text-3xl font-bold text-gray-900 mb-4">Hi, I'm Tom.</h1>
@@ -115,14 +115,14 @@ import PrimaryLayout from '../layouts/Primary.astro';
         </div>
         <div class="p-8 m-6 max-w-4xl body-links grid justify-items-center">            
             <h1 class="mb-4">Who can help solve your data issues?</h1>
-            <video width="400" controls>
+            <video width="400" controls preload="metadata">
             <source src="/Prime_Time_Truth.mp4" type="video/mp4">
             Your browser does not support HTML video.
             </video>
 
             <p class="mb-4">
             Video courtesy of 
-            <a href="https://github.com/ThePrimeagen" target="_blank">ThePrimeagen</a>.
+            <a href="https://github.com/ThePrimeagen" target="_blank" rel="noopener noreferrer">ThePrimeagen</a>.
             </p>            
         </div>
     </div>

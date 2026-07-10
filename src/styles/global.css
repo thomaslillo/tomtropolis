@@ -14,6 +14,31 @@ body {
     margin: 0;
 }
 
+:root[data-theme="dark"] body {
+    background-color: #111827;
+    background-image: none;
+    color: #f8fafc;
+}
+
+:root[data-theme="dark"] .blog-page {
+    background: #111827;
+    color: #f8fafc;
+}
+
+:root[data-theme="dark"] .blog-page .post-shell,
+:root[data-theme="dark"] .blog-page .post-header,
+:root[data-theme="dark"] .blog-page .post-body {
+    background: #1f2937;
+    color: #e5e7eb;
+}
+
+:root[data-theme="dark"] input,
+:root[data-theme="dark"] .bg-white,
+:root[data-theme="dark"] .bg-gray-100 {
+    background-color: #1f2937;
+    color: #f8fafc;
+}
+
 @keyframes gradient {
     0% {
         background-position: 0% 50%;
