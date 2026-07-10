@@ -167,8 +167,9 @@ function renderMonster(monster: Monster): void {
   details.forEach(([label, value]) => {
     if (value === undefined || value === "") return;
     const paragraph = document.createElement("p");
-    paragraph.append(document.createElement("strong"), `: ${value}`);
-    paragraph.firstChild!.textContent = `${label}`;
+    const labelElement = document.createElement("strong");
+    labelElement.textContent = label;
+    paragraph.append(labelElement, `: ${value}`);
     container.appendChild(paragraph);
   });
 
