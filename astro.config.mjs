@@ -1,6 +1,7 @@
 import { defineConfig } from 'astro/config';
-import vercel from '@astrojs/vercel';
-import tailwindcss from '@tailwindcss/vite';
+import vercel from "@astrojs/vercel/serverless";
+
+import react from "@astrojs/react";
 
 // https://astro.build/config
 export default defineConfig({
@@ -8,7 +9,5 @@ export default defineConfig({
   adapter: vercel({
     webAnalytics: { enabled: true }
   }),
-  vite: {
-    plugins: [tailwindcss()]
-  }
+  integrations: [react()]
 });

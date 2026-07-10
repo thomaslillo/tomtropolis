@@ -1,19 +1,16 @@
----
-const currentPath = Astro.url.pathname;
----
-<nav class="flex flex-wrap justify-between items-center gap-2" aria-label="Primary navigation">
+<nav class="flex justify-between items-center">
     <div class="title p-4 md:p-8">
-        <a href="/" class="flex items-center" aria-label="Tomtropolis home">
-            <span class="text-lg md:text-3xl flex items-center"><span aria-hidden="true">⌘</span>&nbsp;Tomtropolis</span>
+        <a href="/" class="flex items-center">
+            <h1 class="text-lg md:text-3xl flex items-center"><i class="fa-solid fa-terminal"></i> Tomtropolis</h1> 
         </a>
     </div>
-    <div class="links px-2">
-        <ul class="flex flex-wrap gap-2">
+    <div class="links">
+        <ul class="flex">
             <li class="px-4">
-                <a href="/about" class:list={["text-sm md:text-xl", { "font-bold underline": currentPath === "/about" }]} aria-current={currentPath === "/about" ? "page" : undefined}>/about</a>
+                <a href="/about" class="text-sm md:text-xl"><h1> \about </h1></a>
             </li>
             <li class="px-4">
-                <a href="/content" class:list={["text-sm md:text-xl", { "font-bold underline": currentPath === "/content" || currentPath.startsWith("/posts") }]} aria-current={currentPath === "/content" || currentPath.startsWith("/posts") ? "page" : undefined}>/content</a>
+                <a href="/content" class="text-sm md:text-xl"><h1> \content </h1></a>
             </li>
         </ul>
     </div>

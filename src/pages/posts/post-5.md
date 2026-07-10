@@ -4,13 +4,14 @@ subtitle: 'Its a superpower to be a bit of a nosy person at work'
 date: 2024-04-20
 author: 'Thomas Lillo'
 tags: ["astro", "blogging", "learning in public", "data"]
+layout: ../../layouts/BlogLayout.astro
 ---
 
 # Conway's Law Justifies Me Being in Other People's Business
 
 On every team I've ever worked on I've been able to get things done faster than the average team member. Not due to any advantage in skills or brainpower, I'm usually disadvantaged in these domains, because I just ask people questions outside of my normal "information space" as I interact with the different systems (organizational and technical) in my day to day work.
 
-Frequently I've found issues I've had at work were caused by either lacking context or a black-box external dependency. If you've ever encountered something illogical in a piece of software, maybe two things that should connect but don't, there is a chance it's because the people that built those parts didn't talk enough.
+Frequently I've found issues I've had at work we're caused by either lacking context or a black-box external dependency. If you've every encountered something illogical in a piece of software, maybe two things that should connect but don't, there is a chance it's because the people that built those parts didn't talk enough.
 
 ---
 
