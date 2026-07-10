@@ -87,8 +87,9 @@ function searchMonsterSuggestions(partialName: string): string[] {
   if (!partialName) return [];
   const monsterNames = getCachedMonsterNames().map((monster) => monster.index.replaceAll("-", " "));
   const startsWithMatches = monsterNames.filter((monster) => monster.startsWith(partialName));
+  const firstCharacter = partialName.charAt(0);
   const containsMatches = monsterNames.filter(
-    (monster) => !monster.startsWith(partialName) && monster.includes(partialName.charAt(0)) && matchCharactersInOrder(monster, partialName),
+    (monster) => !monster.startsWith(partialName) && monster.includes(firstCharacter) && matchCharactersInOrder(monster, partialName),
   );
   return [...startsWithMatches, ...containsMatches].slice(0, 5);
 }

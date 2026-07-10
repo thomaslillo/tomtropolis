@@ -23,7 +23,7 @@ This really smart guy who invented Linux also invented git, and you can see all 
 
 ### Setup
 
-Normally as a data analyst you'll just be interacting with a git repo that some software or IT person has already set up, but you can create your own repo to practise with by following these directions.
+Normally as a data analyst you'll just be interacting with a git repo that some software or IT person has already set up, but you can create your own repo to practice with by following these directions.
 
 With your terminal, go into a folder and use this:
 
