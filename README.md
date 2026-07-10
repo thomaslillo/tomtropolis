@@ -1,6 +1,6 @@
-# Tomtropolis
+# Tomtropolis - My Blazingly Fast Personal Website
 
-Tomtropolis is Tom Lillo's personal website, built with Astro and deployed to Vercel.
+Personal website, built with Astro and deployed to Vercel.
 The homepage includes a D&D 5e monster search powered by the
 [D&D 5e API](https://www.dnd5eapi.co). Articles are stored in the typed Astro
 content collection at `src/content/blog`.
