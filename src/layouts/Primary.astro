@@ -1,28 +1,27 @@
 ---
 import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
-import Head from '../components/Head.astro';
-import '../styles/global.css';
-
-interface Props {
-    title?: string;
-    description?: string;
-}
-
-const {
-    title = 'Tomtropolis',
-    description = "Tom Lillo's personal website and D&D 5e monster search tool.",
-} = Astro.props;
+import Analytics from '@vercel/analytics/astro';
 ---
 <!doctype html>
 <html lang="en">
     <head>
-        <Head title={title} description={description} />
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" href="/sunlogo.ico" type="ico">
+        <title>Tomtropolis</title>
+        <!-- Tailwind CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
+        <!-- HTMX library -->
+        <script src="https://unpkg.com/htmx.org@1.9.9" integrity="sha384-QFjmbokDn2DjBjq+fM+8LUIVrAgqcNW2s0PjAxHETgRn9l4fvX31ZxDxvwQnyMOX" crossorigin="anonymous"></script>
+        <!-- font awesome for icons and such-->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+        <!-- google font-->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo+Play">	
     </head>
-	<body class="site-background text-universal min-h-screen flex flex-col">
-        <a class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded focus:bg-white focus:px-4 focus:py-2" href="#main-content">Skip to content</a>
+	<body class="bg-gradient-to-b text-universal min-h-screen flex flex-col">
         <Navbar />
-        <main id="main-content" class="flex-1 flex items-center justify-center">
+        <main class="flex-1 flex items-center justify-center">
             <!-- main content goes here -->
             <slot />
             <!-- End of main content -->
@@ -31,19 +30,45 @@ const {
     </body>
 </html>
 <style is:global>
-	.text-universal {
-	    color: #00021a;
-	    font-family: 'Cairo Play', system-ui, sans-serif;
-	}
+	/* Customize the background color and keyframes */
+
+    .bg-gradient-to-b {
+        background: linear-gradient(-45deg, #9ab3f5, #a0e5e4 ,#ffd166, #ff6b6b );
+        background-size: 400% 400%;
+        animation: gradient 20s ease infinite;
+    }
+
+    @keyframes gradient {
+        0% {
+            background-position: 0% 50%;
+        }
+        50% {
+            background-position: 100% 50%;
+        }
+        100% {
+            background-position: 0% 50%;
+        }
+    }
+
+    /* Customize text color and font */
+
+    .text-universal {
+        color: #00021a;
+        font-family: 'Cairo Play';
+    }
+
+    h1 {
+        font-weight: bold;
+        font-size: x-large;
+    }
+
+    h2 {
+        font-weight: bold;
+        font-size: large;
+    }
 
     .body-links a {
         color: #3f0abb;
-    }
-
-    @media (prefers-color-scheme: dark) {
-        .text-universal {
-            color: #f8fafc;
-        }
     }
 
 </style>

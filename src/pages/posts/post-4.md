@@ -4,6 +4,7 @@ subtitle: "Turning Cross-Department Magic into Real Impact"
 date: 2024-11-20
 author: 'Thomas Lillo'
 tags: ["data","learning in public","hackathons"]
+layout: ../../layouts/BlogLayout.astro
 ---
 
 With such positive experiences in MLH hackathons and [running my own](https://brocku.ca/social-sciences/geography/2018/11/21/student-led-datathon-dives-deep-into-growing-industry/), I know how fun these can be, so craving one, I joined forces with two amazing people from the product team who had independently started organizing a hackathon, and our respective managers.

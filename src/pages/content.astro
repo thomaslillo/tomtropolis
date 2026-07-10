@@ -1,22 +1,21 @@
 ---
 import PrimaryLayout from '../layouts/Primary.astro';
-import { getCollection } from 'astro:content';
 
-const posts = (await getCollection('blog'))
+const posts = (await Astro.glob('./posts/*.md'))
     .sort((a, b) => {
-        const dateA = a.data.date.getTime();
-        const dateB = b.data.date.getTime();
+        const dateA = new Date(a.frontmatter.date).getTime();
+        const dateB = new Date(b.frontmatter.date).getTime();
         return dateB - dateA;
     });
 
-const formatDate = (dateValue: Date) => dateValue.toLocaleDateString('en-US', {
+const formatDate = (dateValue: string) => new Date(dateValue).toLocaleDateString('en-US', {
     year: 'numeric',
     month: 'short',
     day: 'numeric'
 });
 ---
 
-<PrimaryLayout title="Content | Tomtropolis" description="Articles and notes by Tom Lillo about software, data, and spatial analysis.">
+<PrimaryLayout>
     <section class="blog-index">
         <header class="blog-index__header">
             <p class="blog-index__kicker">THE TOMTROPOLIS JOURNAL</p>
@@ -31,16 +30,16 @@ const formatDate = (dateValue: Date) => dateValue.toLocaleDateString('en-US', {
             {posts.map((post) => (
                 <article class="blog-card">
                     <p class="blog-card__meta">
-                        <span>{formatDate(post.data.date)}</span>
-                        <span>By {post.data.author}</span>
+                        <span>{formatDate(post.frontmatter.date)}</span>
+                        <span>By {post.frontmatter.author}</span>
                     </p>
                     <h2>
-                        <a href={`/posts/${post.id}`}>{post.data.title}</a>
+                        <a href={post.url}>{post.frontmatter.title}</a>
                     </h2>
-                    <p class="blog-card__subtitle">{post.data.subtitle}</p>
-                    {post.data.tags && (
+                    <p class="blog-card__subtitle">{post.frontmatter.subtitle}</p>
+                    {post.frontmatter.tags && (
                         <ul class="blog-card__tags" aria-label="Post tags">
-                            {post.data.tags.map((tag) => <li>{tag}</li>)}
+                            {post.frontmatter.tags.map((tag: string) => <li>{tag}</li>)}
                         </ul>
                     )}
                 </article>

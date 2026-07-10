@@ -4,6 +4,7 @@ subtitle: 'Applying Gestalt Principles to SQL'
 date: 2026-01-09
 author: 'Thomas Lillo'
 tags: ["astro", "blogging", "learning in public", "sql"]
+layout: ../../layouts/BlogLayout.astro
 ---
 
 ## What Are Gestalt Principles
@@ -22,7 +23,7 @@ Gestalt principles are rules of visual perception explaining how the human brain
 
 ## Apply Them To SQL
 
-A lot of bugs come from queries people don't understand; our brains are not that good at processing dense information. 
+A lot of bugs come from queries people dont understand our brains are not that good are processing dense information. 
 
 You can save your brain important power needed to actually reason about the SQL you are working with by making it visually accessible to your eye.
 

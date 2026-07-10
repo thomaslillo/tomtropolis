@@ -1,42 +1,9 @@
-@import "tailwindcss";
-
-@theme {
-    --font-sans: 'Cairo Play', system-ui, sans-serif;
-}
-
 body {
-    --site-gradient: linear-gradient(-45deg, #9ab3f5, #a0e5e4, #ffd166, #ff6b6b);
-    background-image: var(--site-gradient);
+    background: linear-gradient(-45deg, #9ab3f5, #a0e5e4 ,#ffd166, #ff6b6b );
     background-size: 400% 400%;
     animation: gradient 20s ease infinite;
     color: #00021a;
-    font-family: 'Cairo Play', system-ui, sans-serif;
-    margin: 0;
-}
-
-:root[data-theme="dark"] body {
-    background-color: #111827;
-    background-image: none;
-    color: #f8fafc;
-}
-
-:root[data-theme="dark"] .blog-page {
-    background: #111827;
-    color: #f8fafc;
-}
-
-:root[data-theme="dark"] .blog-page .post-shell,
-:root[data-theme="dark"] .blog-page .post-header,
-:root[data-theme="dark"] .blog-page .post-body {
-    background: #1f2937;
-    color: #e5e7eb;
-}
-
-:root[data-theme="dark"] input,
-:root[data-theme="dark"] .bg-white,
-:root[data-theme="dark"] .bg-gray-100 {
-    background-color: #1f2937;
-    color: #f8fafc;
+    font-family: 'Cairo Play';
 }
 
 @keyframes gradient {
@@ -48,16 +15,6 @@ body {
     }
     100% {
         background-position: 0% 50%;
-    }
-}
-
-@media (prefers-reduced-motion: reduce) {
-    *,
-    *::before,
-    *::after {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        scroll-behavior: auto !important;
     }
 }
 
