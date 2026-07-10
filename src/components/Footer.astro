@@ -1,8 +1,13 @@
 <footer class="py-4 font-sans text-center text-gray-800">
     <div class="mt-2">
-        <button id="colorShuffleBtn" class="text-sm px-3 py-1 bg-white bg-opacity-30 rounded hover:bg-opacity-50 flex items-center mx-auto">
-            <i class="fa-solid fa-palette mr-1"></i> Shuffle Colors
+        <div class="flex flex-wrap justify-center gap-2">
+        <button id="colorShuffleBtn" class="text-sm px-3 py-1 bg-white bg-opacity-30 rounded hover:bg-opacity-50 flex items-center mx-auto" type="button">
+            <span aria-hidden="true">🎨</span> Shuffle Colors
         </button>
+        <button id="themeToggleBtn" class="text-sm px-3 py-1 bg-white bg-opacity-30 rounded hover:bg-opacity-50" type="button" aria-pressed="false">
+            Use dark mode
+        </button>
+        </div>
     </div>
     <link rel="stylesheet" href="https://townsquare.cauenapier.com/widget.css" />
     <div id="townsquare-root"></div>
@@ -24,6 +29,24 @@
 <script>
     document.addEventListener('DOMContentLoaded', () => {
         const colorShuffleBtn = document.getElementById('colorShuffleBtn') as HTMLButtonElement;
+        const themeToggleBtn = document.getElementById('themeToggleBtn') as HTMLButtonElement;
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'dark' || savedTheme === 'light') {
+            document.documentElement.dataset.theme = savedTheme;
+        }
+
+        const updateThemeButton = () => {
+            const isDark = document.documentElement.dataset.theme === 'dark';
+            themeToggleBtn.textContent = isDark ? 'Use light mode' : 'Use dark mode';
+            themeToggleBtn.setAttribute('aria-pressed', String(isDark));
+        };
+        updateThemeButton();
+        themeToggleBtn.addEventListener('click', () => {
+            const nextTheme = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+            document.documentElement.dataset.theme = nextTheme;
+            localStorage.setItem('theme', nextTheme);
+            updateThemeButton();
+        });
         
         // color palette with a dozen different colors
         const colorPalette = [
@@ -50,20 +73,12 @@
             
             // Apply the new gradient to both body and .bg-gradient-to-b elements
             const newGradient = `linear-gradient(-45deg, ${selectedColors.join(', ')})`;
-            (document.body as HTMLBodyElement).style.background = newGradient;
-            (document.body as HTMLBodyElement).style.backgroundSize = '400% 400%';
-            
-            // Apply to all elements with bg-gradient-to-b class
-            const gradientElements = document.querySelectorAll('.bg-gradient-to-b');
-            gradientElements.forEach(element => {
-                (element as HTMLElement).style.background = newGradient;
-                (element as HTMLElement).style.backgroundSize = '400% 400%';
-            });
+            document.body.style.setProperty('--site-gradient', newGradient);
             
             // Add a subtle animation to show the change
-            colorShuffleBtn.classList.add('text-purple-600');
+            colorShuffleBtn.setAttribute('aria-pressed', 'true');
             setTimeout(() => {
-                colorShuffleBtn.classList.remove('text-purple-600');
+                colorShuffleBtn.setAttribute('aria-pressed', 'false');
             }, 300);
         });
     });
