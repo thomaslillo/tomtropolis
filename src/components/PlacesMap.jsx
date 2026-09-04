@@ -61,6 +61,14 @@ function MapFocusController({ selectedPlace, visiblePlaces }) {
       return;
     }
 
+    if (visiblePlaces.length === 1) {
+      const [place] = visiblePlaces;
+      map.flyTo([place.lat, place.lng], Math.max(map.getZoom(), 9), {
+        duration: 0.8
+      });
+      return;
+    }
+
     const bounds = L.latLngBounds(visiblePlaces.map((place) => [place.lat, place.lng]));
     map.fitBounds(bounds.pad(0.2));
   }, [map, selectedPlace, visiblePlaces]);
@@ -109,8 +117,8 @@ export default function PlacesMap({ places }) {
     [places, selectedCategory, selectedCountry, selectedTrip]
   );
 
-  const selectedPlace =
-    visiblePlaces.find((place) => place.id === selectedPlaceId) ?? visiblePlaces[0] ?? null;
+  const selectedPlace = visiblePlaces.find((place) => place.id === selectedPlaceId) ?? null;
+  const activePlace = selectedPlace ?? visiblePlaces[0] ?? null;
 
   useEffect(() => {
     fetch('/data/places-route.geojson')
@@ -126,10 +134,8 @@ export default function PlacesMap({ places }) {
   }, []);
 
   useEffect(() => {
-    if (selectedPlace && selectedPlace.id !== selectedPlaceId) {
-      setSelectedPlaceId(selectedPlace.id);
-    }
-  }, [selectedPlace, selectedPlaceId]);
+    setSelectedPlaceId(null);
+  }, [selectedCategory, selectedCountry, selectedTrip]);
 
   useEffect(() => {
     if (!selectedPlace) {
@@ -261,7 +267,7 @@ export default function PlacesMap({ places }) {
         <div className="places-page__cards">
           {visiblePlaces.map((place) => {
             const color = place.color || categoryFallbackColors[place.category] || '#2563eb';
-            const isActive = selectedPlace?.id === place.id;
+            const isActive = activePlace?.id === place.id;
 
             return (
               <article
