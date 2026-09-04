@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import L from 'leaflet';
-import { GeoJSON, MapContainer, Marker, Popup, TileLayer } from 'react-leaflet';
+import { GeoJSON, MapContainer, Marker, Popup, TileLayer, useMap } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import '../styles/places-map.css';
 
@@ -44,6 +44,28 @@ function getMarkerIcon(place) {
   }
 
   return iconCache.get(iconPath);
+}
+
+function MapFocusController({ selectedPlace, visiblePlaces }) {
+  const map = useMap();
+
+  useEffect(() => {
+    if (selectedPlace) {
+      map.flyTo([selectedPlace.lat, selectedPlace.lng], Math.max(map.getZoom(), 9), {
+        duration: 0.8
+      });
+      return;
+    }
+
+    if (!visiblePlaces.length) {
+      return;
+    }
+
+    const bounds = L.latLngBounds(visiblePlaces.map((place) => [place.lat, place.lng]));
+    map.fitBounds(bounds.pad(0.2));
+  }, [map, selectedPlace, visiblePlaces]);
+
+  return null;
 }
 
 export default function PlacesMap({ places }) {
@@ -188,6 +210,7 @@ export default function PlacesMap({ places }) {
           scrollWheelZoom={false}
           className="places-page__map"
         >
+          <MapFocusController selectedPlace={selectedPlace} visiblePlaces={visiblePlaces} />
           <TileLayer
             attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
