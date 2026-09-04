@@ -1,0 +1,112 @@
+---
+import PrimaryLayout from '../layouts/Primary.astro';
+import PlacesMap from '../components/PlacesMap.jsx';
+import places from '../data/places.json';
+---
+
+<PrimaryLayout>
+    <section class="places-page">
+        <header class="places-page__hero">
+            <p class="places-page__kicker">MAP JOURNAL</p>
+            <h1>Cool Places I&apos;ve Visited</h1>
+            <p class="places-page__lede">
+                This is a starter map for memorable places, built with static data instead of a database.
+                Each marker comes from a local JSON file, each icon is an SVG asset, and the route overlay is a GeoJSON layer.
+            </p>
+        </header>
+
+        <div class="places-page__notes">
+            <article class="places-page__note">
+                <h2>Why Leaflet first?</h2>
+                <p>
+                    Leaflet is the lightest fit for this site right now. If I ever want more advanced vector styling,
+                    the data structure can move over to MapLibre without changing the page concept.
+                </p>
+            </article>
+            <article class="places-page__note">
+                <h2>No database required</h2>
+                <p>
+                    The current version keeps everything in static files, which makes it easy to deploy on Vercel.
+                    If the page ever needs structured server-side storage later, SQLite would be the first lightweight option to consider.
+                </p>
+            </article>
+        </div>
+
+        <PlacesMap client:only="react" places={places} />
+    </section>
+</PrimaryLayout>
+
+<style>
+    .places-page {
+        width: min(1080px, calc(100vw - 2rem));
+        margin: 2rem auto 2.5rem;
+        display: grid;
+        gap: 1.5rem;
+        color: #0f172a;
+    }
+
+    .places-page__hero {
+        background: rgba(255, 255, 255, 0.82);
+        border: 1px solid rgba(15, 23, 42, 0.12);
+        border-radius: 1.25rem;
+        padding: 2rem;
+        box-shadow: 0 18px 40px rgba(15, 23, 42, 0.12);
+    }
+
+    .places-page__kicker {
+        margin: 0 0 0.8rem;
+        font-size: 0.8rem;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        color: #475569;
+    }
+
+    .places-page__hero h1 {
+        margin: 0;
+        font-size: clamp(1.85rem, 3.4vw, 2.8rem);
+        line-height: 1.1;
+    }
+
+    .places-page__lede {
+        margin: 1rem 0 0;
+        line-height: 1.7;
+        color: #334155;
+        max-width: 68ch;
+    }
+
+    .places-page__notes {
+        display: grid;
+        gap: 1rem;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    }
+
+    .places-page__note {
+        background: rgba(255, 255, 255, 0.88);
+        border: 1px solid rgba(15, 23, 42, 0.12);
+        border-radius: 1rem;
+        padding: 1.2rem;
+        box-shadow: 0 12px 28px rgba(15, 23, 42, 0.1);
+    }
+
+    .places-page__note h2 {
+        margin: 0 0 0.45rem;
+        font-size: 1.05rem;
+    }
+
+    .places-page__note p {
+        margin: 0;
+        line-height: 1.65;
+        color: #334155;
+    }
+
+    @media (max-width: 640px) {
+        .places-page {
+            width: min(1080px, calc(100vw - 1rem));
+            margin: 1rem auto 1.5rem;
+        }
+
+        .places-page__hero {
+            padding: 1.3rem;
+        }
+    }
+</style>

@@ -1,0 +1,12 @@
+<svg width="640" height="360" viewBox="0 0 640 360" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="640" height="360" rx="24" fill="#DBEAFE"/>
+  <rect x="0" y="256" width="640" height="104" fill="#93C5FD"/>
+  <rect x="119" y="176" width="48" height="80" fill="#1D4ED8"/>
+  <rect x="190" y="145" width="62" height="111" fill="#2563EB"/>
+  <rect x="278" y="109" width="28" height="147" fill="#1E40AF"/>
+  <rect x="320" y="76" width="20" height="180" fill="#1D4ED8"/>
+  <path d="M330 44L343 76H317L330 44Z" fill="#60A5FA"/>
+  <rect x="370" y="160" width="76" height="96" fill="#3B82F6"/>
+  <rect x="468" y="132" width="54" height="124" fill="#1D4ED8"/>
+  <text x="48" y="56" fill="#1E3A8A" font-family="Arial, sans-serif" font-size="28" font-weight="700">Toronto</text>
+</svg>
