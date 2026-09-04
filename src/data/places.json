@@ -1,0 +1,44 @@
+[
+  {
+    "id": "st-catharines",
+    "name": "St. Catharines, Ontario",
+    "lat": 43.1594,
+    "lng": -79.2469,
+    "category": "community",
+    "country": "Canada",
+    "trip": "Niagara Roots",
+    "description": "A hometown base filled with memories from Brock University, Datathon, and plenty of good walks near the canal.",
+    "image": "/place-thumbs/st-catharines.svg",
+    "link": "https://brocku.ca/brock-news/tag/datathon/",
+    "icon": "/icons/community-pin.svg",
+    "color": "#7c3aed"
+  },
+  {
+    "id": "toronto",
+    "name": "Toronto, Ontario",
+    "lat": 43.6532,
+    "lng": -79.3832,
+    "category": "city",
+    "country": "Canada",
+    "trip": "City Days",
+    "description": "A favorite city for meetups, Civic Tech nights, and wandering neighborhoods with more coffee shops than one day can handle.",
+    "image": "/place-thumbs/toronto.svg",
+    "link": "https://github.com/CivicTechTO/missing-persons",
+    "icon": "/icons/city-pin.svg",
+    "color": "#2563eb"
+  },
+  {
+    "id": "niagara-falls",
+    "name": "Niagara Falls, Ontario",
+    "lat": 43.0896,
+    "lng": -79.0849,
+    "category": "nature",
+    "country": "Canada",
+    "trip": "Niagara Roots",
+    "description": "A reliably great stop for showing off the escarpment, the river, and one of the most dramatic waterfalls around.",
+    "image": "/place-thumbs/niagara-falls.svg",
+    "link": "https://devpost.com/software/agritech-hackathon-2020-opentourism-niagara",
+    "icon": "/icons/nature-pin.svg",
+    "color": "#059669"
+  }
+]

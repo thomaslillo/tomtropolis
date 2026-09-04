@@ -1,0 +1,20 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Starter route",
+        "description": "A simple GeoJSON line showing how to add vector overlays for a trip."
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [-79.2469, 43.1594],
+          [-79.3832, 43.6532],
+          [-79.0849, 43.0896]
+        ]
+      }
+    }
+  ]
+}

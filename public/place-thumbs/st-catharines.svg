@@ -1,0 +1,10 @@
+<svg width="640" height="360" viewBox="0 0 640 360" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="640" height="360" rx="24" fill="#EDE9FE"/>
+  <rect x="0" y="228" width="640" height="132" fill="#C4B5FD"/>
+  <path d="M65 256C102 188 163 154 231 154C299 154 349 198 396 198C443 198 469 168 517 168C565 168 603 194 640 236V360H0V318C18 318 41 298 65 256Z" fill="#8B5CF6"/>
+  <path d="M165 140H246V228H165V140Z" fill="#6D28D9"/>
+  <path d="M182 159H229V228H182V159Z" fill="#F5F3FF"/>
+  <path d="M319 126L366 174H272L319 126Z" fill="#7C3AED"/>
+  <path d="M293 174H345V228H293V174Z" fill="#A78BFA"/>
+  <text x="48" y="56" fill="#4C1D95" font-family="Arial, sans-serif" font-size="28" font-weight="700">St. Catharines</text>
+</svg>

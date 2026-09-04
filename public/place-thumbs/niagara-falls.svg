@@ -1,0 +1,11 @@
+<svg width="640" height="360" viewBox="0 0 640 360" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="640" height="360" rx="24" fill="#DCFCE7"/>
+  <rect x="0" y="248" width="640" height="112" fill="#86EFAC"/>
+  <path d="M0 205C76 170 148 181 209 181C270 181 319 156 392 156C465 156 534 198 640 181V248H0V205Z" fill="#22C55E"/>
+  <path d="M235 105H421V195C421 216 404 233 383 233H273C252 233 235 216 235 195V105Z" fill="#34D399"/>
+  <path d="M259 105H397V209H259V105Z" fill="#ECFDF5"/>
+  <path d="M285 105V214" stroke="#93C5FD" stroke-width="12"/>
+  <path d="M328 105V214" stroke="#60A5FA" stroke-width="16"/>
+  <path d="M372 105V214" stroke="#93C5FD" stroke-width="12"/>
+  <text x="48" y="56" fill="#166534" font-family="Arial, sans-serif" font-size="28" font-weight="700">Niagara Falls</text>
+</svg>
