@@ -7,7 +7,7 @@ tags: ["maps", "history", "cartography", "geography"]
 layout: ../../layouts/BlogLayout.astro
 ---
 
-Maps have never been only about getting from one place to another. They have also been arguments about what belongs at the center, who has reliable information, and what kind of world people think they live in.
+“A map of the world that does not include Utopia is not worth even glancing at.” - Oscar Wilde
 
 The maps below are not a complete history of cartography. They are a tour through a few moments when a sheet of parchment or paper made the world look newly connected, newly measurable, or simply much stranger than before. The images are reproductions of historical works hosted by Wikimedia Commons.
 
