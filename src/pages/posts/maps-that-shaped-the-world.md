@@ -91,15 +91,15 @@ That changed the business of geographic knowledge. Maps were no longer only sing
 
 [Read about Typus Orbis Terrarum on Wikipedia](https://en.wikipedia.org/wiki/Typus_Orbis_Terrarum) · [Image: Wikimedia Commons, public domain](https://commons.wikimedia.org/wiki/File:OrteliusWorldMap1570.jpg)
 
-## The Cassini map of France, 1744–1815
+## Mitchell map of North America, 1755
 
-![A sheet from the Cassini map of France](https://commons.wikimedia.org/wiki/Special:FilePath/Cassini_map_of_France.jpg)
+![John Mitchell's 1755 map of British and French dominions in North America](https://tile.loc.gov/image-services/iiif/service:gmd:gmd385:g3850:ct000168/full/2000,/0/default.jpg)
 
-The Cassini map was the first topographic map of an entire country made through systematic triangulation. Four generations of the Cassini family worked on it, connecting measured points across France and turning those calculations into a detailed national survey.
+John Mitchell’s map of the British and French dominions in North America captured a continent on the brink of the Seven Years’ War. Published in 1755, it set out the competing colonial claims that covered present-day Canada and the eastern United States.
 
-The project made the state more legible: roads, villages, forests, and terrain could be studied on a shared grid rather than through a patchwork of local sketches. It also had a practical limitation that feels familiar today—many smaller features were already changing by the time the full work was finished.
+Its influence outlasted the conflict that prompted it. Diplomats used it while negotiating boundaries after the American Revolution, making it one of the maps that helped shape the political geography of British North America and Canada.
 
-[Read about the Cassini map on Wikipedia](https://en.wikipedia.org/wiki/Cassini_map) · [Image: Wikimedia Commons, public domain](https://commons.wikimedia.org/wiki/File:Cassini_map_of_France.jpg)
+[View the Mitchell map at the Library of Congress](https://www.loc.gov/resource/g3300.ct000168/) · [Image: Library of Congress, public domain](https://www.loc.gov/item/74692035/)
 
 The history of maps is not a straight march from wrong to right. Every one of these works selected what mattered, left something out, and used the best tools or testimony available at the time. That is why they remain useful to look at: they show how people organized the world before us, and how much any map still depends on the questions behind it.
 
