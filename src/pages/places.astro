@@ -8,29 +8,12 @@ import places from '../data/places.json';
     <section class="places-page">
         <header class="places-page__hero">
             <p class="places-page__kicker">MAP JOURNAL</p>
-            <h1>Cool Places I&apos;ve Visited</h1>
+            <h1>Toms Places</h1>
             <p class="places-page__lede">
-                This is a starter map for memorable places, built with static data instead of a database.
+                A starter map for memorable places, built with static data instead of a database.
                 Each marker comes from a local JSON file, each icon is an SVG asset, and the route overlay is a GeoJSON layer.
             </p>
         </header>
-
-        <div class="places-page__notes">
-            <article class="places-page__note">
-                <h2>Why Leaflet first?</h2>
-                <p>
-                    Leaflet is the lightest fit for this site right now. If I ever want more advanced vector styling,
-                    the data structure can move over to MapLibre without changing the page concept.
-                </p>
-            </article>
-            <article class="places-page__note">
-                <h2>No database required</h2>
-                <p>
-                    The current version keeps everything in static files, which makes it easy to deploy on Vercel.
-                    If the page ever needs structured server-side storage later, SQLite would be the first lightweight option to consider.
-                </p>
-            </article>
-        </div>
 
         <PlacesMap client:only="react" places={places} />
     </section>
