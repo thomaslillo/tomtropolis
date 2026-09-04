@@ -102,3 +102,5 @@ The project made the state more legible: roads, villages, forests, and terrain c
 [Read about the Cassini map on Wikipedia](https://en.wikipedia.org/wiki/Cassini_map) · [Image: Wikimedia Commons, public domain](https://commons.wikimedia.org/wiki/File:Cassini_map_of_France.jpg)
 
 The history of maps is not a straight march from wrong to right. Every one of these works selected what mattered, left something out, and used the best tools or testimony available at the time. That is why they remain useful to look at: they show how people organized the world before us, and how much any map still depends on the questions behind it.
+
+If maps and mapmaking are your thing, consider joining the [Canadian Cartographic Association](https://cca-acc.org/).
