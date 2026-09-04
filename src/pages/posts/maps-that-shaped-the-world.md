@@ -1,5 +1,5 @@
 ---
-title: 'Nine Maps That Changed How People Saw the World'
+title: 'an interesting selection of historic maps - part 1'
 subtitle: 'From sacred diagrams to printed atlases, these maps show geography becoming shared knowledge.'
 date: 2025-03-16
 author: 'Thomas Lillo'
