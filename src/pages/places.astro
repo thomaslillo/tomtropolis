@@ -1,25 +1,33 @@
 ---
 import PrimaryLayout from '../layouts/Primary.astro';
 import PlacesMap from '../components/PlacesMap.jsx';
+import TownSquare from '../components/TownSquare.astro';
 import places from '../data/places.json';
 ---
 
 <PrimaryLayout>
-    <section class="places-page">
-        <header class="places-page__hero">
-            <p class="places-page__kicker">MAP JOURNAL</p>
-            <h1>Toms Places</h1>
-            <p class="places-page__lede">
-                A starter map for memorable places, built with static data instead of a database.
-                Each marker comes from a local JSON file, each icon is an SVG asset, and the route overlay is a GeoJSON layer.
-            </p>
-        </header>
+    <div class="places-page-shell">
+        <TownSquare />
+        <section class="places-page">
+            <header class="places-page__hero">
+                <p class="places-page__kicker">MAP JOURNAL</p>
+                <h1>Toms Places</h1>
+                <p class="places-page__lede">
+                    A starter map for memorable places, built with static data instead of a database.
+                    Each marker comes from a local JSON file, each icon is an SVG asset, and the route overlay is a GeoJSON layer.
+                </p>
+            </header>
 
-        <PlacesMap client:only="react" places={places} />
-    </section>
+            <PlacesMap client:only="react" places={places} />
+        </section>
+    </div>
 </PrimaryLayout>
 
 <style>
+    .places-page-shell {
+        width: 100%;
+    }
+
     .places-page {
         width: min(1080px, calc(100vw - 2rem));
         margin: 2rem auto 2.5rem;
