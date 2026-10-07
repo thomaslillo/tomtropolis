@@ -19,6 +19,18 @@ That combination is what makes it feel different from a chatbot. Muse can take i
 
 This is the direction I have been calling a ClawBot-like experience. The agent is not merely explaining how to book a trip or find a restaurant. It is becoming the layer that can move between the services involved in getting those things done.
 
+## A Computer in the Cloud
+
+David Singleton's [post about how Muse works](https://x.com/dps/status/2103161493722419334?s=20) describes an even more interesting architecture. Muse gives each user a computer in the cloud: a shared virtual machine with a full Linux filesystem, workspace, and memory. The useful mental model is not “an LLM with access to a disposable sandbox.” It is a computer with an agent running on it.
+
+That distinction matters because the computer is inspectable. Users can see the files Muse is working with and understand where its memory and workspace live. The agent is not a mysterious process operating somewhere behind a chat window; it has an environment that can be examined.
+
+The security design is just as important. Meta describes two isolated domains on the same machine. Muse's runtime contains its harness, workspace, and executed programs, while host-side services control permissions, credentials, connectors, and network traffic. A service called Sentinel acts as the authority for connector actions and outbound network access. Muse cannot simply decide for itself that it is allowed to perform a sensitive action.
+
+Credentials stay outside the runtime and are exchanged as narrowly scoped surrogate credentials rather than handing the agent a user's raw passwords or long-lived secrets. Sensitive actions can pause the work and ask for approval in the client interface. Meta also describes defenses against prompt injection, including labeling untrusted input, independent injection classifiers, approval for data leaving the virtual machine, and deterministic boundaries enforced by the host.
+
+That is a meaningful technical pattern for agents: give the model a capable environment, but keep the authority to approve actions outside the model. The architecture is Meta's description of its own system, not an independent security audit, but it is a much more concrete picture of what an everyday agent needs to be useful without being allowed to do absolutely everything.
+
 ## Why This Feels Like a Breakthrough
 
 Power users have understood for years that chat interfaces could be connected to tools. They could use APIs, browser automation, custom prompts, and little scripts to make an assistant search, compare, summarize, and take action. Most people never made that connection. To most people, ChatGPT was a place to ask questions, not a way to interact with the rest of the internet.
